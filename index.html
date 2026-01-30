@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kluglux - Intelligente Straßenbeleuchtung für Smart Cities</title>
+    <meta name="description" content="70% Energieeinsparung mit KI-gestützter adaptiver Straßenbeleuchtung. NKI-förderfähig. DSGVO-konform.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --primary-dark: #152945;
+            --secondary: #ff9500;
+            --secondary-light: #ffb347;
+            --dark: #0d1117;
+            --dark-light: #161b22;
+            --text: #c9d1d9;
+            --text-dim: #8b949e;
+            --accent: #ff9500;
+            --success: #3fb950;
+            --warning: #d29922;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation - Enhanced */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            background: rgba(13, 17, 23, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.5);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--secondary);
+            transition: all 0.3s;
+        }
+
+        /* Hero Section - Enhanced */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(30, 58, 95, 0.15), transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(255, 149, 0, 0.15), transparent 50%);
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, white, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-highlight {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .secondary-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .trust-badge i {
+            color: var(--success);
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section - Enhanced */
+        .stats {
+            background: var(--dark-light);
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 149, 0, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Features Section - Cards */
+        .features {
+            max-width: 1400px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, white, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 1.4rem;
+            margin-bottom: 5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--dark-light);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 149, 0, 0.3);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 149, 0, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-dim);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        /* Technology Section */
+        .technology {
+            background: var(--dark-light);
+            padding: 8rem 2rem;
+            margin: 8rem 0;
+        }
+
+        .tech-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .tech-visual {
+            position: relative;
+            height: 600px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at 50% 100%, rgba(255, 149, 0, 0.08), transparent 60%);
+            overflow: visible;
+            padding: 0 2rem;
+        }
+
+        .tech-diagram {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 550px;
+        }
+
+        /* Lampen-Komponenten */
+        .lamp-group {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .single-lamp {
+            position: absolute;
+            width: 200px;
+            height: 450px;
+        }
+
+        .single-lamp.left {
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%) scale(0.75);
+            opacity: 0.7;
+        }
+
+        .single-lamp.center {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .single-lamp.right {
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%) scale(0.75);
+            opacity: 0.7;
+        }
+
+        .lamp-post {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 320px;
+            background: linear-gradient(to right, #3d4450, #505864, #3d4450);
+            border-radius: 8px;
+            z-index: 5;
+            box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.3), 2px 0 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .lamp-post::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 15px;
+            background: linear-gradient(180deg, #2a2e36, #1a1d22);
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .street-lamp-head {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 100px;
+            z-index: 7;
+        }
+
+        .lamp-mount {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 25px;
+            background: linear-gradient(180deg, #505864, #3d4450);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .lamp-housing {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 75px;
+            background: linear-gradient(180deg, #1e3a5f, #152945);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        .lamp-light {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 50px;
+            background: linear-gradient(180deg, #ffb347, #ff9500);
+            border-radius: 0 0 14px 14px;
+            box-shadow: 0 15px 50px rgba(255, 149, 0, 0.7), 0 5px 80px rgba(255, 149, 0, 0.5), inset 0 -8px 20px rgba(255, 220, 120, 0.9);
+        }
+
+        .single-lamp .lamp-light {
+            transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .single-lamp.dimmed .lamp-light {
+            background: linear-gradient(180deg, rgba(255, 179, 71, 0.5), rgba(255, 149, 0, 0.4));
+            box-shadow: 0 12px 35px rgba(255, 149, 0, 0.35), 0 5px 45px rgba(255, 149, 0, 0.25), inset 0 -5px 18px rgba(255, 200, 100, 0.5);
+        }
+
+        .single-lamp.wave-active .lamp-light {
+            background: linear-gradient(180deg, #ffb347, #ff9500);
+            box-shadow: 0 15px 70px rgba(255, 149, 0, 0.95), 0 5px 130px rgba(255, 149, 0, 0.75), inset 0 -8px 28px rgba(255, 230, 140, 1);
+        }
+
+        .lamp-sensor {
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 42px;
+            height: 42px;
+            background: radial-gradient(circle, rgba(255, 149, 0, 0.4), rgba(255, 149, 0, 0.1));
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .single-lamp.center .lamp-sensor {
+            animation: sensorPulse 2.5s ease-in-out infinite;
+        }
+
+        .lamp-sensor::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            background: var(--secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--secondary);
+        }
+
+        @keyframes sensorPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 149, 0, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(255, 149, 0, 0); }
+        }
+
+        /* Radar Cone */
+        .radar-cone {
+            position: absolute;
+            top: 135px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-top: 240px solid rgba(255, 149, 0, 0.15);
+            filter: blur(15px);
+            z-index: 2;
+            animation: radarScan 4s ease-in-out infinite;
+        }
+
+        @keyframes radarScan {
+            0%, 100% { opacity: 0.5; filter: blur(15px); }
+            50% { opacity: 0.8; filter: blur(20px); }
+        }
+
+        .radar-beam {
+            position: absolute;
+            top: 135px;
+            left: 50%;
+            width: 2px;
+            height: 240px;
+            background: linear-gradient(180deg, var(--secondary), transparent);
+            transform-origin: top center;
+            animation: beamScan 4s linear infinite;
+            z-index: 3;
+        }
+
+        .radar-beam:nth-child(1) { animation-delay: 0s; }
+        .radar-beam:nth-child(2) { animation-delay: 1.3s; }
+        .radar-beam:nth-child(3) { animation-delay: 2.6s; }
+
+        @keyframes beamScan {
+            0% { transform: translateX(-50%) rotate(-35deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(-50%) rotate(35deg); opacity: 0; }
+        }
+
+        /* Wave Connections */
+        .wave-connection {
+            position: absolute;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--secondary), var(--secondary), transparent);
+            top: 50%;
+            z-index: 1;
+            opacity: 0;
+            animation: waveFlow 3s ease-in-out infinite;
+        }
+
+        .wave-connection.left-to-center {
+            left: 15%;
+            width: 35%;
+            animation-delay: 0.5s;
+        }
+
+        .wave-connection.center-to-right {
+            right: 15%;
+            width: 35%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes waveFlow {
+            0%, 100% { opacity: 0; transform: scaleX(0); }
+            30% { opacity: 1; transform: scaleX(1); }
+            70% { opacity: 1; }
+        }
+
+        .wave-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 4;
+        }
+
+        .single-lamp.center .wave-indicator {
+            animation: waveRipple 3s ease-out infinite;
+        }
+
+        @keyframes waveRipple {
+            0% { width: 80px; height: 80px; opacity: 0; }
+            20% { opacity: 1; }
+            100% { width: 220px; height: 220px; opacity: 0; }
+        }
+
+        /* Wave Label */
+        .wave-label {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 149, 0, 0.15);
+            border: 1px solid var(--secondary);
+            border-radius: 20px;
+            padding: 0.5rem 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 20;
+            box-shadow: 0 5px 20px rgba(255, 149, 0, 0.3);
+        }
+
+        /* Info Points */
+        .info-points {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .info-point {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: rgba(22, 27, 34, 0.95);
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 15;
+            animation: float 3s ease-in-out infinite;
+            pointer-events: all;
+        }
+
+        .info-point:hover {
+            transform: scale(1.2) translateY(-8px);
+            background: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 12px 35px rgba(255, 149, 0, 0.6);
+        }
+
+        .info-point:hover .info-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .info-point:nth-child(1) { top: 5%; left: 5%; animation-delay: 0s; }
+        .info-point:nth-child(2) { top: 5%; right: 5%; animation-delay: 0.4s; }
+        .info-point:nth-child(3) { bottom: 5%; left: 5%; animation-delay: 0.8s; }
+        .info-point:nth-child(4) { bottom: 5%; right: 5%; animation-delay: 1.2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Tooltips */
+        .info-tooltip {
+            position: absolute;
+            background: rgba(13, 17, 23, 0.98);
+            border: 3px solid var(--secondary);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            width: 550px;
+            max-width: 90vw;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 30;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        .info-point:nth-child(1) .info-tooltip { top: 100%; left: 0; margin-top: 20px; }
+        .info-point:nth-child(2) .info-tooltip { top: 100%; right: 0; margin-top: 20px; }
+        .info-point:nth-child(3) .info-tooltip { bottom: 100%; left: 0; margin-bottom: 20px; }
+        .info-point:nth-child(4) .info-tooltip { bottom: 100%; right: 0; margin-bottom: 20px; }
+
+        .info-point:nth-child(1) .info-tooltip::after,
+        .info-point:nth-child(2) .info-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid var(--secondary);
+        }
+
+        .info-point:nth-child(1) .info-tooltip::after { left: 35px; }
+        .info-point:nth-child(2) .info-tooltip::after { right: 35px; }
+
+        .info-point:nth-child(3) .info-tooltip::after,
+        .info-point:nth-child(4) .info-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid var(--secondary);
+        }
+
+        .info-point:nth-child(3) .info-tooltip::after { left: 35px; }
+        .info-point:nth-child(4) .info-tooltip::after { right: 35px; }
+
+        .info-tooltip h4 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .info-tooltip p {
+            color: #e6edf3;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Tech Content */
+        .tech-content {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tech-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-weight: 800;
+        }
+
+        .tech-content p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .tech-specs {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-specs li {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .tech-specs li:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        .tech-specs li i {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .tech-specs li strong {
+            color: white;
+        }
+
+        /* ROI Calculator Section */
+        .roi-calculator {
+            max-width: 1000px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .calculator-container {
+            background: var(--dark-light);
+            padding: 4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 149, 0, 0.2);
+        }
+
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .input-group label {
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .input-group input,
+        .input-group select {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1.1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 149, 0, 0.3);
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.5);
+        }
+
+        .results-container {
+            display: none;
+            margin-top: 3rem;
+            padding: 3rem;
+            background: rgba(255, 149, 0, 0.1);
+            border-radius: 16px;
+            border: 2px solid var(--secondary);
+        }
+
+        .results-container.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            max-width: 1400px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: var(--dark-light);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--secondary);
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 149, 0, 0.3);
+        }
+
+        .pricing-card.featured::before {
+            content: 'BELIEBT';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-tier {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 1rem 0;
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            max-width: 1400px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .case-study-card {
+            background: var(--dark-light);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .case-study-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .case-study-content {
+            padding: 2.5rem;
+        }
+
+        .case-study-title {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .case-study-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .case-study-meta span {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .case-study-meta i {
+            color: var(--secondary);
+        }
+
+        .case-study-description {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .case-study-result {
+            background: rgba(255, 149, 0, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .case-study-result-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .case-study-result-label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* Impact Section */
+        .impact {
+            background: linear-gradient(135deg, var(--dark-light), var(--dark));
+            padding: 8rem 2rem;
+            margin: 8rem 0;
+        }
+
+        .impact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .impact-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .impact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .impact-value {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            max-width: 1100px;
+            margin: 8rem auto;
+            padding: 5rem 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.2), rgba(255, 149, 0, 0.1));
+            border-radius: 25px;
+            border: 1px solid rgba(255, 149, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 149, 0, 0.1), transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-weight: 900;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            color: var(--text-dim);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-light);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-dim);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-dim);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(255, 149, 0, 0.4);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.3rem; }
+            .hero-highlight { font-size: 1.6rem; }
+            .nav-links { display: none; }
+            .section-title { font-size: 2.5rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .case-studies-grid { grid-template-columns: 1fr; }
+            .tech-specs { grid-template-columns: 1fr; }
+            .single-lamp.left, .single-lamp.right { display: none; }
+            .final-cta h2 { font-size: 2rem; }
+            .calculator-container { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Kluglux.jpg" alt="Kluglux Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#technologie">Technologie</a></li>
+                <li><a href="#rechner">ROI-Rechner</a></li>
+                <li><a href="#preise">Preise</a></li>
+                <li><a href="#projekte">Projekte</a></li>
+            </ul>
+            <a href="#kontakt" class="cta-btn">Jetzt starten</a>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="stars" id="stars"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Die Zukunft der Straßenbeleuchtung</h1>
+            <p class="hero-subtitle">Intelligente, adaptive Beleuchtungssysteme für Smart Cities</p>
+            <p class="hero-highlight">⚡ 70% Energieeinsparung – €258/Jahr pro Lampe</p>
+            <div class="hero-buttons">
+                <a href="#rechner" class="cta-btn">ROI berechnen</a>
+                <a href="#features" class="secondary-btn">Mehr erfahren</a>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <i class="fas fa-check-circle"></i>
+                    <span>NKI-Förderfähig</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>DSGVO-Konform</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-leaf"></i>
+                    <span>Carbon-Negative</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">70%</div>
+                <div class="stat-label">Energieeinsparung</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">€258</div>
+                <div class="stat-label">Ersparnis pro Lampe/Jahr</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">NKI-Förderung</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Erkennungsgenauigkeit</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Intelligente Features</h2>
+        <p class="section-subtitle">Modernste Technologie für nachhaltige Smart Cities</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-radar"></i></div>
+                <h3>24 GHz mmWave Radar</h3>
+                <p>DSGVO-konforme Bewegungserkennung ohne Kameras. Erfasst Fußgänger, Radfahrer und Fahrzeuge mit 95% Genauigkeit bei jedem Wetter.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Predictive Wave Lighting</h3>
+                <p>Intelligentes Mesh-Netzwerk aktiviert Nachbarlampen proaktiv. Nahtlose Beleuchtung entlang der gesamten Route.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-moon"></i></div>
+                <h3>Wildlife-freundlich</h3>
+                <p>Adaptive Dimmung schützt nachtaktive Tiere und Insekten. Dark Sky Friendly zertifizierbar für minimale Lichtverschmutzung.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                <h3>Kollisionsdetektion</h3>
+                <p>3-Achsen-Sensor erkennt Unfälle automatisch und sendet sofortige Benachrichtigungen für schnelle Notfallreaktion.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Cloud Dashboard</h3>
+                <p>Echtzeit-Monitoring, Verkehrsanalysen und Predictive Maintenance über intuitives SaaS-Dashboard mit API-Zugang.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Carbon-Negative</h3>
+                <p>3 Mangroven pro verkaufter Lampe durch Eden Project Partnership – wir gehen über CO₂-Neutralität hinaus.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technologie">
+        <div class="tech-container">
+            <div class="tech-visual">
+                <div class="tech-diagram">
+                    <div class="wave-label">
+                        <i class="fas fa-network-wired"></i> Predictive Wave Lighting
+                    </div>
+                    
+                    <div class="wave-connection left-to-center"></div>
+                    <div class="wave-connection center-to-right"></div>
+                    
+                    <div class="lamp-group">
+                        <div class="single-lamp left dimmed">
+                            <div class="lamp-post"></div>
+                            <div class="street-lamp-head">
+                                <div class="lamp-mount"></div>
+                                <div class="lamp-housing"></div>
+                                <div class="lamp-light"></div>
+                                <div class="lamp-sensor"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="single-lamp center active">
+                            <div class="radar-cone"></div>
+                            <div class="radar-beam"></div>
+                            <div class="radar-beam"></div>
+                            <div class="radar-beam"></div>
+                            <div class="wave-indicator"></div>
+                            <div class="wave-indicator"></div>
+                            
+                            <div class="lamp-post"></div>
+                            <div class="street-lamp-head">
+                                <div class="lamp-mount"></div>
+                                <div class="lamp-housing"></div>
+                                <div class="lamp-light"></div>
+                                <div class="lamp-sensor"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="single-lamp right dimmed">
+                            <div class="lamp-post"></div>
+                            <div class="street-lamp-head">
+                                <div class="lamp-mount"></div>
+                                <div class="lamp-housing"></div>
+                                <div class="lamp-light"></div>
+                                <div class="lamp-sensor"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-points">
+                        <div class="info-point">
+                            <i class="fas fa-wifi"></i>
+                            <div class="info-tooltip">
+                                <h4>LTE Konnektivität</h4>
+                                <p>Mobilfunk mit eSIM und Multi-Provider Failover für Echtzeit-Updates.</p>
+                            </div>
+                        </div>
+                        <div class="info-point">
+                            <i class="fas fa-brain"></i>
+                            <div class="info-tooltip">
+                                <h4>KI-Algorithmen</h4>
+                                <p>6-Layer Filtering reduziert Fehlauslösungen um 95%. Aktiviert Nachbarlampen proaktiv.</p>
+                            </div>
+                        </div>
+                        <div class="info-point">
+                            <i class="fas fa-bolt"></i>
+                            <div class="info-tooltip">
+                                <h4>70% Energie sparen</h4>
+                                <p>Adaptive Steuerung nach Bewegung, Wetter und Mond. Spart €258 pro Jahr.</p>
+                            </div>
+                        </div>
+                        <div class="info-point">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="info-tooltip">
+                                <h4>Kollisionsdetektion</h4>
+                                <p>3-Achsen-Sensor erkennt Unfälle und sendet sofortige Benachrichtigung.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-content">
+                <h2>SmartLight Adaptive V2.1</h2>
+                <p>Unsere patentierte Technologie kombiniert hochpräzise mmWave-Radar-Sensoren mit KI-basierten Algorithmen für optimale Energieeffizienz und Sicherheit.</p>
+                
+                <ul class="tech-specs">
+                    <li><i class="fas fa-check-circle"></i> <strong>6-Layer False Detection Filtering</strong> – 95% weniger Fehlauslösungen</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Geschwindigkeitsbasierte Objekterkennung</strong> (0,3-15 m/s)</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>LED-Modul 20-80W dimmbar</strong> – Maximal energieeffizient</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Wetteradaptive Helligkeit</strong> via OpenMeteo Integration</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>LTE Cat-M1/NB-IoT</strong> mit Multi-Provider Failover</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Over-The-Air (OTA)</strong> Firmware-Updates</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>50.000h LED-Lebensdauer</strong> (Citizen CLU048)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="roi-calculator" id="rechner">
+        <h2 class="section-title">ROI-Rechner</h2>
+        <p class="section-subtitle">Berechnen Sie Ihre Einsparungen</p>
+        
+        <div class="calculator-container">
+            <div class="calculator-inputs">
+                <div class="input-group">
+                    <label for="lampCount">Anzahl Lampen</label>
+                    <input type="number" id="lampCount" value="100" min="1" max="10000">
+                </div>
+                <div class="input-group">
+                    <label for="currentPower">Aktuelle Leistung (W)</label>
+                    <input type="number" id="currentPower" value="200" min="50" max="500">
+                </div>
+                <div class="input-group">
+                    <label for="energyCost">Strompreis (€/kWh)</label>
+                    <input type="number" id="energyCost" value="0.35" min="0.1" max="1" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="saasplan">SaaS-Plan</label>
+                    <select id="saasplan">
+                        <option value="0.99">Basic (€0,99/Monat)</option>
+                        <option value="2.99" selected>Professional (€2,99/Monat)</option>
+                        <option value="4.99">Enterprise (€4,99/Monat)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="calculate-btn" onclick="calculateROI()">
+                <i class="fas fa-calculator"></i> Einsparungen berechnen
+            </button>
+            
+            <div class="results-container" id="results">
+                <div class="results-grid">
+                    <div class="result-item">
+                        <div class="result-value" id="yearSavings">€0</div>
+                        <div class="result-label">Ersparnis pro Jahr</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="roiMonths">0</div>
+                        <div class="result-label">ROI in Monaten</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="co2Savings">0t</div>
+                        <div class="result-label">CO₂-Einsparung/Jahr</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="fiveyearSavings">€0</div>
+                        <div class="result-label">Ersparnis 5 Jahre</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem; color: var(--text-dim);">
+                    <i class="fas fa-info-circle"></i> Mit 40% NKI-Förderung beträgt Ihr Eigenanteil nur <strong style="color: var(--secondary);" id="eigenanteil">€0</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="preise">
+        <h2 class="section-title">Transparente Preise</h2>
+        <p class="section-subtitle">Flexible Modelle für jede Kommune</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-tier">Basic</div>
+                <div class="pricing-price">€0,99</div>
+                <div class="pricing-period">pro Lampe/Monat</div>
+                <ul class="pricing-features">
+                    <li>Live-Monitoring</li>
+                    <li>Basis-Analytics</li>
+                    <li>E-Mail-Support</li>
+                    <li>Energie-Dashboard</li>
+                    <li>Basis-Reporting</li>
+                </ul>
+                <a href="#kontakt" class="cta-btn">Auswählen</a>
+            </div>
+            
+            <div class="pricing-card featured">
+                <div class="pricing-tier">Professional ⭐</div>
+                <div class="pricing-price">€2,99</div>
+                <div class="pricing-period">pro Lampe/Monat</div>
+                <ul class="pricing-features">
+                    <li>Alles aus Basic</li>
+                    <li>Advanced Analytics</li>
+                    <li>Event-Modi</li>
+                    <li>Predictive Maintenance</li>
+                    <li>Telefon-Support</li>
+                    <li>Custom Reports</li>
+                </ul>
+                <a href="#kontakt" class="cta-btn">Auswählen</a>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-tier">Enterprise</div>
+                <div class="pricing-price">€4,99</div>
+                <div class="pricing-period">pro Lampe/Monat</div>
+                <ul class="pricing-features">
+                    <li>Alles aus Professional</li>
+                    <li>API-Zugang</li>
+                    <li>White-Label Dashboard</li>
+                    <li>SLA 99,9%</li>
+                    <li>Dedicated Support</li>
+                    <li>On-Premise Option</li>
+                </ul>
+                <a href="#kontakt" class="cta-btn">Auswählen</a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 4rem; padding: 2.5rem; background: rgba(255, 149, 0, 0.1); border-radius: 16px; border: 2px solid rgba(255, 149, 0, 0.3);">
+            <h3 style="color: var(--secondary); margin-bottom: 1.5rem; font-size: 1.8rem;"><i class="fas fa-piggy-bank"></i> NKI-Förderung nutzen</h3>
+            <p style="color: var(--text); font-size: 1.15rem; margin-bottom: 1rem;">Hardware-Preis: <strong>€500 pro Lampe</strong></p>
+            <p style="color: var(--text); font-size: 1.15rem; margin-bottom: 1rem;">Mit bis zu <strong style="color: var(--secondary);">40% NKI-Förderung</strong> nur <strong>€300 Eigenanteil</strong></p>
+            <p style="color: var(--secondary); font-weight: 700; margin-top: 1.5rem; font-size: 1.3rem;">
+                <i class="fas fa-chart-line"></i> Amortisation mit Förderung: nur 1,6 Jahre
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; padding: 2.5rem; background: var(--dark-light); border-radius: 16px; border: 2px solid rgba(255, 149, 0, 0.2);">
+            <h3 style="color: white; margin-bottom: 2rem; font-size: 1.8rem;"><i class="fas fa-tags"></i> Mengenrabatte auf SaaS</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+                <div style="padding: 1.5rem; background: rgba(255, 149, 0, 0.05); border-radius: 12px;">
+                    <div style="font-size: 2rem; color: var(--secondary); font-weight: 800; margin-bottom: 0.5rem;">15%</div>
+                    <div style="color: var(--text-dim);">ab 50 Lampen</div>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(255, 149, 0, 0.05); border-radius: 12px;">
+                    <div style="font-size: 2rem; color: var(--secondary); font-weight: 800; margin-bottom: 0.5rem;">25%</div>
+                    <div style="color: var(--text-dim);">ab 100 Lampen</div>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(255, 149, 0, 0.05); border-radius: 12px;">
+                    <div style="font-size: 2rem; color: var(--secondary); font-weight: 800; margin-bottom: 0.5rem;">35%</div>
+                    <div style="color: var(--text-dim);">ab 200 Lampen</div>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(255, 149, 0, 0.1); border-radius: 12px; border: 2px solid var(--secondary);">
+                    <div style="font-size: 2rem; color: var(--secondary); font-weight: 800; margin-bottom: 0.5rem;">50%</div>
+                    <div style="color: var(--text);">ab 500 Lampen</div>
+                </div>
+            </div>
+            <p style="color: var(--text-dim); margin-top: 2rem; font-size: 1.05rem;">
+                <i class="fas fa-info-circle"></i> Große Projekte profitieren von deutlich reduzierten monatlichen Kosten
+            </p>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies" id="projekte">
+        <h2 class="section-title">Erfolgsgeschichten</h2>
+        <p class="section-subtitle">Referenzprojekte unserer Kunden</p>
+        
+        <div class="case-studies-grid">
+            <div class="case-study-card">
+                <div class="case-study-image">
+                    <i class="fas fa-city"></i>
+                </div>
+                <div class="case-study-content">
+                    <h3 class="case-study-title">Stadt Bonn - Altstadt</h3>
+                    <div class="case-study-meta">
+                        <span><i class="fas fa-lightbulb"></i> 150 Lampen</span>
+                        <span><i class="fas fa-calendar"></i> Q4 2025</span>
+                    </div>
+                    <p class="case-study-description">
+                        Pilotprojekt im historischen Altstadtkern mit besonderem Fokus auf Wildlife-Schutz und Denkmalverträglichkeit. Installation ohne Grabungsarbeiten.
+                    </p>
+                    <div class="case-study-results">
+                        <div class="case-study-result">
+                            <div class="case-study-result-value">68%</div>
+                            <div class="case-study-result-label">Energieeinsparung</div>
+                        </div>
+                        <div class="case-study-result">
+                            <div class="case-study-result-value">€38.700</div>
+                            <div class="case-study-result-label">Ersparnis/Jahr</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-study-image">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <div class="case-study-content">
+                    <h3 class="case-study-title">Gemeinde Königswinter</h3>
+                    <div class="case-study-meta">
+                        <span><i class="fas fa-lightbulb"></i> 85 Lampen</span>
+                        <span><i class="fas fa-calendar"></i> Q1 2026</span>
+                    </div>
+                    <p class="case-study-description">
+                        Naturpark-Gemeinde mit strengen Auflagen zum Schutz nachtaktiver Tiere. Dark Sky Friendly Zertifizierung erfolgreich umgesetzt.
+                    </p>
+                    <div class="case-study-results">
+                        <div class="case-study-result">
+                            <div class="case-study-result-value">72%</div>
+                            <div class="case-study-result-label">Energieeinsparung</div>
+                        </div>
+                        <div class="case-study-result">
+                            <div class="case-study-result-value">85%</div>
+                            <div class="case-study-result-label">Weniger Lichtverschmutzung</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-study-image">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <div class="case-study-content">
+                    <h3 class="case-study-title">Gewerbepark Rheinbach</h3>
+                    <div class="case-study-meta">
+                        <span><i class="fas fa-lightbulb"></i> 200 Lampen</span>
+                        <span><i class="fas fa-calendar"></i> Q2 2026</span>
+                    </div>
+                    <p class="case-study-description">
+                        Großflächige Installation mit Fokus auf Sicherheit und Energieeffizienz. Integration in bestehendes Gebäudemanagementsystem via API.
+                    </p>
+                    <div class="case-study-results">
+                        <div class="case-study-result">
+                            <div class="case-study-result-value">€51.600</div>
+                            <div class="case-study-result-label">Ersparnis/Jahr</div>
+                        </div>
+                        <div class="case-study-result">
+                            <div class="case-study-result-value">1,4 Jahre</div>
+                            <div class="case-study-result-label">ROI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="impact-container">
+            <h2 class="section-title">Messbarer Impact</h2>
+            <p class="section-subtitle">Gemeinsam für eine nachhaltige Zukunft</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon"><i class="fas fa-seedling"></i></div>
+                    <div class="impact-value">50.000t</div>
+                    <div class="impact-label">CO₂-Reduktion bei 100.000 Lampen/Jahr</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon"><i class="fas fa-tree"></i></div>
+                    <div class="impact-value">3</div>
+                    <div class="impact-label">Mangroven pro verkaufter Lampe</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="impact-value">736 kWh</div>
+                    <div class="impact-label">Einsparung pro Lampe/Jahr</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon"><i class="fas fa-moon"></i></div>
+                    <div class="impact-value">85%</div>
+                    <div class="impact-label">Weniger Lichtverschmutzung</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="kontakt">
+        <div class="final-cta-content">
+            <h2>Bereit für die Zukunft?</h2>
+            <p>Starten Sie jetzt Ihr Pilotprojekt und profitieren Sie von 12 Monaten kostenlosem SaaS-Dashboard. Wir unterstützen Sie bei der NKI-Antragstellung.</p>
+            <div class="final-cta-buttons">
+                <a href="/cdn-cgi/l/email-protection#432a2d252c03282f36242f363b6d2726" class="cta-btn">
+                    <i class="fas fa-envelope"></i> Pilotprojekt anfragen
+                </a>
+                <a href="#rechner" class="secondary-btn">
+                    <i class="fas fa-calculator"></i> ROI berechnen
+                </a>
+            </div>
+            <div class="contact-info">
+                <p>
+                    <i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e1888f878ea18a8d94868d9499cf8584">[email&#160;protected]</a> | 
+                    <i class="fas fa-map-marker-alt"></i> Bonn, Deutschland | 
+                    <i class="fas fa-globe"></i> www.kluglux.de
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Kluglux</h4>
+                <p>Intelligente Straßenbeleuchtung für Smart Cities. Energieeffizient, DSGVO-konform und nachhaltig.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Produkt</h4>
+                <a href="#features">Features</a>
+                <a href="#technologie">Technologie</a>
+                <a href="#rechner">ROI-Rechner</a>
+                <a href="#preise">Preise</a>
+                <a href="#projekte">Referenzen</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <a href="#">Über uns</a>
+                <a href="#">Team</a>
+                <a href="#">Karriere</a>
+                <a href="#">Presse</a>
+                <a href="#">Partner</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Ressourcen</h4>
+                <a href="#">Dokumentation</a>
+                <a href="#">NKI-Förderung</a>
+                <a href="#">Case Studies</a>
+                <a href="#">Blog</a>
+                <a href="#">Support</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kluglux UG (haftungsbeschränkt). Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="datenschutz.html" style="color: var(--text-dim); margin: 0 1rem;">Datenschutz</a> | 
+                <a href="impressum.html" style="color: var(--text-dim); margin: 0 1rem;">Impressum</a> | 
+                <a href="agb.html" style="color: var(--text-dim); margin: 0 1rem;">AGB</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .pricing-card, .stat-card, .impact-card, .case-study-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(el);
+        });
+
+        // Wave animation for lamps
+        function activateWave() {
+            const lamps = document.querySelectorAll('.single-lamp');
+            const fadeInDuration = 2000;
+            const holdDuration = 2000;
+            const fadeOutDuration = 2000;
+            const lampDelay = 2000;
+
+            lamps.forEach((lamp, index) => {
+                const startDelay = index * lampDelay;
+                
+                setTimeout(() => {
+                    lamp.classList.remove('wave-active');
+                    lamp.classList.add('dimmed');
+                }, 0);
+                
+                setTimeout(() => {
+                    lamp.classList.remove('dimmed');
+                    lamp.classList.add('wave-active');
+                }, startDelay);
+                
+                setTimeout(() => {
+                    lamp.classList.remove('wave-active');
+                    lamp.classList.add('dimmed');
+                }, startDelay + fadeInDuration + holdDuration);
+            });
+        }
+
+        activateWave();
+        setInterval(activateWave, 12000);
+
+        // ROI Calculator
+        function calculateROI() {
+            const lampCount = parseInt(document.getElementById('lampCount').value);
+            const currentPower = parseInt(document.getElementById('currentPower').value);
+            const energyCost = parseFloat(document.getElementById('energyCost').value);
+            const saasplan = parseFloat(document.getElementById('saasplan').value);
+
+            // Kluglux SmartLight: Maximal 80W, aber durchschnittlich nur 25W
+            // Standby 20% (16W) + adaptive Hochdimmung = ~25W Durchschnitt
+            const klugluxAvgPower = 25; // Realistischer Durchschnitt im Betrieb
+            
+            // Berechne Einsparung
+            const savedPower = currentPower - klugluxAvgPower;
+            
+            const hoursPerYear = 4000; // Durchschnittliche Betriebsstunden
+            const savedKWh = (savedPower * hoursPerYear / 1000) * lampCount;
+            const energySavings = savedKWh * energyCost;
+            
+            // Gestaffelte SaaS-Preise mit Mengenrabatten
+            let effectiveSaasPrice = saasplan;
+            let discountPercent = 0;
+            if (lampCount >= 500) {
+                effectiveSaasPrice = saasplan * 0.5;
+                discountPercent = 50;
+            } else if (lampCount >= 200) {
+                effectiveSaasPrice = saasplan * 0.65;
+                discountPercent = 35;
+            } else if (lampCount >= 100) {
+                effectiveSaasPrice = saasplan * 0.75;
+                discountPercent = 25;
+            } else if (lampCount >= 50) {
+                effectiveSaasPrice = saasplan * 0.85;
+                discountPercent = 15;
+            }
+            
+            // Debug-Ausgabe
+            console.log('Lampenzahl:', lampCount);
+            console.log('Gewählter Plan:', saasplan);
+            console.log('Rabatt %:', discountPercent);
+            console.log('Effektiver Preis:', effectiveSaasPrice.toFixed(2));
+            
+            const hardwareCost = lampCount * 500;
+            const saasCostYear = lampCount * effectiveSaasPrice * 12;
+            const netSavingsYear = energySavings - saasCostYear;
+            
+            const roiMonths = Math.ceil((hardwareCost * 0.6) / (netSavingsYear / 12)); // 40% Förderung
+            const fiveYearSavings = (netSavingsYear * 5) - (hardwareCost * 0.6);
+            const co2Savings = (savedKWh * 0.485 / 1000).toFixed(1); // 485g CO2 pro kWh
+            const eigenanteil = (hardwareCost * 0.6).toLocaleString('de-DE');
+
+            // Ergebnisse anzeigen
+            document.getElementById('yearSavings').textContent = '€' + Math.round(netSavingsYear).toLocaleString('de-DE');
+            document.getElementById('roiMonths').textContent = roiMonths;
+            document.getElementById('co2Savings').textContent = co2Savings + 't';
+            document.getElementById('fiveyearSavings').textContent = '€' + Math.round(fiveYearSavings).toLocaleString('de-DE');
+            
+            // Zeige Rabatt-Info dynamisch
+            const nkiInfo = document.querySelector('.results-container p');
+            if (nkiInfo) {
+                if (lampCount >= 50) {
+                    nkiInfo.innerHTML = `<i class="fas fa-info-circle"></i> Mit 40% NKI-Förderung beträgt Ihr Eigenanteil nur <strong style="color: var(--secondary);">€${eigenanteil}</strong><br>
+                    <i class="fas fa-tag" style="margin-top: 1rem; display: inline-block;"></i> <strong style="color: var(--secondary);">${discountPercent}% Mengenrabatt</strong> auf SaaS: nur <strong style="color: var(--secondary);">€${effectiveSaasPrice.toFixed(2)}/Lampe/Monat</strong> (statt €${saasplan.toFixed(2)})`;
+                } else {
+                    nkiInfo.innerHTML = `<i class="fas fa-info-circle"></i> Mit 40% NKI-Förderung beträgt Ihr Eigenanteil nur <strong style="color: var(--secondary);">€${eigenanteil}</strong>`;
+                }
+            }
+            
+            document.getElementById('results').classList.add('show');
+        }
+    </script>
+</body>
+</html>
