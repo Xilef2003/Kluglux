@@ -1236,9 +1236,10 @@
 
         .case-study-content {
             padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+            display: grid;
+            grid-template-rows: auto auto 144px auto;
+            gap: 0;
+            height: 100%;
         }
 
         .case-study-title {
@@ -1246,9 +1247,6 @@
             color: white;
             margin-bottom: 1rem;
             font-weight: 700;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
         }
 
         .case-study-meta {
@@ -1256,7 +1254,6 @@
             gap: 1.5rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
-            min-height: 30px;
         }
 
         .case-study-meta span {
@@ -1275,16 +1272,18 @@
             color: var(--text-dim);
             line-height: 1.8;
             margin-bottom: 2rem;
-            height: 144px;
             overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
         }
 
         .case-study-results {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            margin-top: auto;
-            padding-top: 1.5rem;
+            margin-top: 0;
+            padding-top: 0;
         }
 
         .case-study-result {
@@ -1296,7 +1295,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100px;
+            height: 100px;
         }
 
         .case-study-result-value {
@@ -1952,7 +1951,7 @@
                 </h3>
                 
                 <!-- Zwei-Stufen Einsparung -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
                     <div style="text-align: center; padding: 1rem;">
                         <div style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.5rem;">Schritt 1: LED-Upgrade</div>
                         <div style="font-size: 2rem; font-weight: 800; color: var(--success);" id="ledSavings">60%</div>
@@ -1967,6 +1966,19 @@
                         <div style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 600;">Gesamt-Einsparung</div>
                         <div style="font-size: 2.5rem; font-weight: 900; color: var(--secondary);" id="totalSavingsPercent">88%</div>
                         <div style="font-size: 0.85rem; color: var(--text); margin-top: 0.5rem; font-weight: 600;" id="totalSavingsText">150W → 18W</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.5rem;">Lichtleistung</div>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                            <div style="background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 6px;">
+                                <div style="font-size: 0.7rem; color: var(--text-dim);">Maximal</div>
+                                <div style="font-size: 1.3rem; font-weight: 700; color: var(--secondary);" id="lumensMax">9.000 lm</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 6px;">
+                                <div style="font-size: 0.7rem; color: var(--text-dim);">Gedimmt (Ø)</div>
+                                <div style="font-size: 1.3rem; font-weight: 700; color: var(--success);" id="lumensDimmed">2.700 lm</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2526,13 +2538,24 @@
             const totalSavingWatt = currentPower - phoenixAvg;
             const totalSavingPercent = Math.round((totalSavingWatt / currentPower) * 100);
             
+            // Berechne Lumen für alle Stufen
+            const oldLumens = Math.round(currentPower * 80); // Alte Lampen ~80 Lumen/W
+            const phoenixMaxLumens = phoenixMax * 150; // Phoenix ~150 Lumen/W (!!)
+            const phoenixAvgLumens = phoenixAvg * 150;
+            
             // Zeige Einsparungs-Breakdown
             document.getElementById('ledSavings').textContent = ledSavingPercent + '%';
             document.getElementById('ledSavingsText').textContent = currentPower + 'W → ' + phoenixMax + 'W';
+            
             document.getElementById('adaptiveSavings').textContent = adaptiveSavingPercent + '%';
             document.getElementById('adaptiveSavingsText').textContent = phoenixMax + 'W → ' + phoenixAvg + 'W';
+            
             document.getElementById('totalSavingsPercent').textContent = totalSavingPercent + '%';
             document.getElementById('totalSavingsText').textContent = currentPower + 'W → ' + phoenixAvg + 'W';
+            
+            // 4. Box: Lumen-Leistung
+            document.getElementById('lumensMax').textContent = phoenixMaxLumens.toLocaleString('de-DE') + ' lm';
+            document.getElementById('lumensDimmed').textContent = phoenixAvgLumens.toLocaleString('de-DE') + ' lm';
             
             const hoursPerYear = 4000;
             const savedKWh = (totalSavingWatt * hoursPerYear / 1000) * lampCount;
