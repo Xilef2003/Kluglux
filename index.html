@@ -1264,32 +1264,41 @@
             line-height: 1.8;
             margin-bottom: 1.5rem;
             flex-grow: 1;
-            min-height: 100px;
+            min-height: 120px;
         }
 
         .case-study-results {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: auto;
+            padding-top: 1.5rem;
         }
 
         .case-study-result {
             background: rgba(255, 149, 0, 0.1);
-            padding: 1rem;
+            padding: 1.5rem 1rem;
             border-radius: 8px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
         }
 
         .case-study-result-value {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--secondary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
         .case-study-result-label {
             font-size: 0.9rem;
             color: var(--text-dim);
+            line-height: 1.3;
         }
 
         /* Impact Section */
@@ -1901,7 +1910,7 @@
                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                     <i class="fas fa-lightbulb" style="font-size: 2rem; color: var(--secondary);"></i>
                     <div>
-                        <h3 style="color: var(--secondary); margin: 0; font-size: 1.3rem;">Empfohlene Phoenix-Variante</h3>
+                        <h3 style="color: var(--secondary); margin: 0; font-size: 1.3rem;" id="recommendationTitle">Empfohlene Variante</h3>
                         <p style="color: var(--text); margin: 0; font-size: 0.95rem;" id="recommendationText"></p>
                     </div>
                 </div>
@@ -2412,7 +2421,7 @@
             const streetType = document.getElementById('streetType').value;
             const currentPower = parseInt(document.getElementById('currentPower').value) || 150;
             
-            let phoenixMax, phoenixAvg, lumens, recommendText, hardwarePrice;
+            let phoenixMax, phoenixAvg, lumens, recommendText, hardwarePrice, modelName;
             
             switch(streetType) {
                 case 'residential':
@@ -2421,6 +2430,7 @@
                     lumens = phoenixMax * 130;
                     recommendText = "Für Wohnstraßen optimal";
                     hardwarePrice = 350;
+                    modelName = "Aurora";
                     break;
                 case 'main':
                     phoenixMax = 60;
@@ -2428,6 +2438,7 @@
                     lumens = phoenixMax * 130;
                     recommendText = "Für Hauptstraßen optimal";
                     hardwarePrice = 400;
+                    modelName = "Lumen";
                     break;
                 case 'highway':
                     phoenixMax = 80;
@@ -2435,6 +2446,7 @@
                     lumens = phoenixMax * 130;
                     recommendText = "Für Bundesstraßen optimal";
                     hardwarePrice = 450;
+                    modelName = "Nova";
                     break;
                 case 'autobahn':
                     phoenixMax = 100;
@@ -2442,15 +2454,17 @@
                     lumens = phoenixMax * 130;
                     recommendText = "Für Autobahnen optimal";
                     hardwarePrice = 500;
+                    modelName = "Phoenix";
                     break;
             }
             
+            document.getElementById('recommendationTitle').textContent = 'Empfohlene Variante: ' + modelName;
             document.getElementById('phoenixMax').textContent = phoenixMax + 'W';
             document.getElementById('phoenixAvg').textContent = phoenixAvg + 'W';
             document.getElementById('phoenixLumens').textContent = lumens.toLocaleString('de-DE');
             document.getElementById('recommendationText').textContent = recommendText + ' | Hardware: €' + hardwarePrice;
             
-            return { phoenixMax, phoenixAvg, hardwarePrice };
+            return { phoenixMax, phoenixAvg, hardwarePrice, modelName };
         }
 
         // ROI Calculator mit Phoenix-Logik und 2 Jahren gratis SaaS
