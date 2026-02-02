@@ -1843,7 +1843,7 @@
     <!-- ROI Calculator Section -->
     <section class="roi-calculator" id="rechner">
         <h2 class="section-title">ROI-Rechner</h2>
-        <p class="section-subtitle">Berechnen Sie Ihre Einsparungen</p>
+        <p class="section-subtitle">Berechnen Sie Ihre Einsparungen mit Phoenix</p>
         
         <div class="calculator-container">
             <div class="calculator-inputs">
@@ -1852,8 +1852,17 @@
                     <input type="number" id="lampCount" value="100" min="1" max="10000">
                 </div>
                 <div class="input-group">
-                    <label for="currentPower">Aktuelle Leistung (W)</label>
-                    <input type="number" id="currentPower" value="200" min="50" max="500">
+                    <label for="streetType">Straßentyp</label>
+                    <select id="streetType" onchange="updatePhoenixRecommendation()">
+                        <option value="residential">Wohnstraße / Fußweg</option>
+                        <option value="main" selected>Hauptstraße / Stadtverkehr</option>
+                        <option value="highway">Bundesstraße / Landstraße</option>
+                        <option value="autobahn">Autobahn / Schnellstraße</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="currentPower">Aktuelle Lampenleistung (W)</label>
+                    <input type="number" id="currentPower" value="150" min="30" max="300">
                 </div>
                 <div class="input-group">
                     <label for="energyCost">Strompreis (€/kWh)</label>
@@ -1868,12 +1877,60 @@
                     </select>
                 </div>
             </div>
+
+            <!-- Phoenix Empfehlung -->
+            <div id="phoenixRecommendation" style="background: rgba(255, 149, 0, 0.1); border: 2px solid var(--secondary); border-radius: 12px; padding: 1.5rem; margin: 2rem 0;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <i class="fas fa-lightbulb" style="font-size: 2rem; color: var(--secondary);"></i>
+                    <div>
+                        <h3 style="color: var(--secondary); margin: 0; font-size: 1.3rem;">Empfohlene Phoenix-Variante</h3>
+                        <p style="color: var(--text); margin: 0; font-size: 0.95rem;" id="recommendationText"></p>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.8rem; font-weight: 800; color: var(--secondary);" id="phoenixMax">60W</div>
+                        <div style="font-size: 0.9rem; color: var(--text-dim);">Phoenix Maximum</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.8rem; font-weight: 800; color: var(--secondary);" id="phoenixAvg">18W</div>
+                        <div style="font-size: 0.9rem; color: var(--text-dim);">Durchschnitt adaptiv</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.8rem; font-weight: 800; color: var(--secondary);" id="phoenixLumens">7.800</div>
+                        <div style="font-size: 0.9rem; color: var(--text-dim);">Lumen bei 100%</div>
+                    </div>
+                </div>
+            </div>
             
             <button class="calculate-btn" onclick="calculateROI()">
                 <i class="fas fa-calculator"></i> Einsparungen berechnen
             </button>
             
             <div class="results-container" id="results">
+                <h3 style="color: white; margin-bottom: 2rem; text-align: center; font-size: 1.5rem;">
+                    <i class="fas fa-chart-line"></i> Ihre Einsparungen
+                </h3>
+                
+                <!-- Zwei-Stufen Einsparung -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.5rem;">Schritt 1: LED-Upgrade</div>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--success);" id="ledSavings">60%</div>
+                        <div style="font-size: 0.85rem; color: var(--text-dim); margin-top: 0.5rem;" id="ledSavingsText">150W → 60W</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.5rem;">Schritt 2: Adaptive Steuerung</div>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--success);" id="adaptiveSavings">70%</div>
+                        <div style="font-size: 0.85rem; color: var(--text-dim); margin-top: 0.5rem;" id="adaptiveSavingsText">60W → 18W</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; border: 2px solid var(--secondary); border-radius: 12px; background: rgba(255, 149, 0, 0.1);">
+                        <div style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 600;">Gesamt-Einsparung</div>
+                        <div style="font-size: 2.5rem; font-weight: 900; color: var(--secondary);" id="totalSavingsPercent">88%</div>
+                        <div style="font-size: 0.85rem; color: var(--text); margin-top: 0.5rem; font-weight: 600;" id="totalSavingsText">150W → 18W</div>
+                    </div>
+                </div>
+
                 <div class="results-grid">
                     <div class="result-item">
                         <div class="result-value" id="yearSavings">€0</div>
@@ -1892,8 +1949,9 @@
                         <div class="result-label">Ersparnis 5 Jahre</div>
                     </div>
                 </div>
+
                 <p style="text-align: center; margin-top: 2rem; color: var(--text-dim);">
-                    <i class="fas fa-info-circle"></i> Mit 40% NKI-Förderung beträgt Ihr Eigenanteil nur <strong style="color: var(--secondary);" id="eigenanteil">€0</strong>
+                    <i class="fas fa-info-circle"></i> Mit 40% NKI-Förderung beträgt Ihr Eigenanteil nur <strong style="color: var(--secondary);" id="eigenanteilText">€0</strong>
                 </p>
             </div>
         </div>
@@ -2291,21 +2349,88 @@
         setInterval(activateWave, 12000);
 
         // ROI Calculator
+        // Phoenix Recommendation basierend auf Straßentyp
+        function updatePhoenixRecommendation() {
+            const streetType = document.getElementById('streetType').value;
+            const currentPower = parseInt(document.getElementById('currentPower').value) || 150;
+            
+            let phoenixMax, phoenixAvg, lumens, recommendText;
+            
+            switch(streetType) {
+                case 'residential':
+                    phoenixMax = 40;
+                    phoenixAvg = Math.round(phoenixMax * 0.30);
+                    lumens = phoenixMax * 130;
+                    recommendText = "Für Wohnstraßen optimal";
+                    break;
+                case 'main':
+                    phoenixMax = 60;
+                    phoenixAvg = Math.round(phoenixMax * 0.30);
+                    lumens = phoenixMax * 130;
+                    recommendText = "Für Hauptstraßen optimal";
+                    break;
+                case 'highway':
+                    phoenixMax = 80;
+                    phoenixAvg = Math.round(phoenixMax * 0.31);
+                    lumens = phoenixMax * 130;
+                    recommendText = "Für Bundesstraßen optimal";
+                    break;
+                case 'autobahn':
+                    phoenixMax = 100;
+                    phoenixAvg = Math.round(phoenixMax * 0.30);
+                    lumens = phoenixMax * 130;
+                    recommendText = "Für Autobahnen optimal";
+                    break;
+            }
+            
+            document.getElementById('phoenixMax').textContent = phoenixMax + 'W';
+            document.getElementById('phoenixAvg').textContent = phoenixAvg + 'W';
+            document.getElementById('phoenixLumens').textContent = lumens.toLocaleString('de-DE');
+            document.getElementById('recommendationText').textContent = recommendText;
+        }
+
+        // ROI Calculator mit Phoenix-Logik
         function calculateROI() {
+            updatePhoenixRecommendation();
+            
             const lampCount = parseInt(document.getElementById('lampCount').value);
             const currentPower = parseInt(document.getElementById('currentPower').value);
             const energyCost = parseFloat(document.getElementById('energyCost').value);
             const saasplan = parseFloat(document.getElementById('saasplan').value);
-
-            // Kluglux SmartLight: Maximal 80W, aber durchschnittlich nur 25W
-            // Standby 20% (16W) + adaptive Hochdimmung = ~25W Durchschnitt
-            const klugluxAvgPower = 25; // Realistischer Durchschnitt im Betrieb
+            const streetType = document.getElementById('streetType').value;
             
-            // Berechne Einsparung
-            const savedPower = currentPower - klugluxAvgPower;
+            // Phoenix-Variante basierend auf Straßentyp
+            let phoenixMax, phoenixAvg;
+            switch(streetType) {
+                case 'residential': phoenixMax = 40; phoenixAvg = 12; break;
+                case 'main': phoenixMax = 60; phoenixAvg = 18; break;
+                case 'highway': phoenixMax = 80; phoenixAvg = 25; break;
+                case 'autobahn': phoenixMax = 100; phoenixAvg = 30; break;
+            }
             
-            const hoursPerYear = 4000; // Durchschnittliche Betriebsstunden
-            const savedKWh = (savedPower * hoursPerYear / 1000) * lampCount;
+            // Berechne Einsparungen in zwei Schritten
+            // Schritt 1: LED-Upgrade (alte Lampe → Phoenix Max)
+            const ledSavingWatt = currentPower - phoenixMax;
+            const ledSavingPercent = Math.round((ledSavingWatt / currentPower) * 100);
+            
+            // Schritt 2: Adaptive Steuerung (Phoenix Max → Phoenix Durchschnitt)
+            const adaptiveSavingWatt = phoenixMax - phoenixAvg;
+            const adaptiveSavingPercent = Math.round((adaptiveSavingWatt / phoenixMax) * 100);
+            
+            // Gesamt-Einsparung
+            const totalSavingWatt = currentPower - phoenixAvg;
+            const totalSavingPercent = Math.round((totalSavingWatt / currentPower) * 100);
+            
+            // Zeige Einsparungs-Breakdown
+            document.getElementById('ledSavings').textContent = ledSavingPercent + '%';
+            document.getElementById('ledSavingsText').textContent = currentPower + 'W → ' + phoenixMax + 'W';
+            document.getElementById('adaptiveSavings').textContent = adaptiveSavingPercent + '%';
+            document.getElementById('adaptiveSavingsText').textContent = phoenixMax + 'W → ' + phoenixAvg + 'W';
+            document.getElementById('totalSavingsPercent').textContent = totalSavingPercent + '%';
+            document.getElementById('totalSavingsText').textContent = currentPower + 'W → ' + phoenixAvg + 'W';
+            
+            const hoursPerYear = 4000;
+            const savedKWh = (totalSavingWatt * hoursPerYear / 1000) * lampCount;
             const energySavings = savedKWh * energyCost;
             
             // Gestaffelte SaaS-Preise mit Mengenrabatten
@@ -2325,19 +2450,13 @@
                 discountPercent = 15;
             }
             
-            // Debug-Ausgabe
-            console.log('Lampenzahl:', lampCount);
-            console.log('Gewählter Plan:', saasplan);
-            console.log('Rabatt %:', discountPercent);
-            console.log('Effektiver Preis:', effectiveSaasPrice.toFixed(2));
-            
             const hardwareCost = lampCount * 500;
             const saasCostYear = lampCount * effectiveSaasPrice * 12;
             const netSavingsYear = energySavings - saasCostYear;
             
-            const roiMonths = Math.ceil((hardwareCost * 0.6) / (netSavingsYear / 12)); // 40% Förderung
+            const roiMonths = Math.ceil((hardwareCost * 0.6) / (netSavingsYear / 12));
             const fiveYearSavings = (netSavingsYear * 5) - (hardwareCost * 0.6);
-            const co2Savings = (savedKWh * 0.485 / 1000).toFixed(1); // 485g CO2 pro kWh
+            const co2Savings = (savedKWh * 0.485 / 1000).toFixed(1);
             const eigenanteil = (hardwareCost * 0.6).toLocaleString('de-DE');
 
             // Ergebnisse anzeigen
@@ -2345,20 +2464,19 @@
             document.getElementById('roiMonths').textContent = roiMonths;
             document.getElementById('co2Savings').textContent = co2Savings + 't';
             document.getElementById('fiveyearSavings').textContent = '€' + Math.round(fiveYearSavings).toLocaleString('de-DE');
+            document.getElementById('eigenanteilText').textContent = '€' + eigenanteil;
             
-            // Zeige Rabatt-Info dynamisch
-            const nkiInfo = document.querySelector('.results-container p');
-            if (nkiInfo) {
-                if (lampCount >= 50) {
-                    nkiInfo.innerHTML = `<i class="fas fa-info-circle"></i> Mit 40% NKI-Förderung beträgt Ihr Eigenanteil nur <strong style="color: var(--secondary);">€${eigenanteil}</strong><br>
-                    <i class="fas fa-tag" style="margin-top: 1rem; display: inline-block;"></i> <strong style="color: var(--secondary);">${discountPercent}% Mengenrabatt</strong> auf SaaS: nur <strong style="color: var(--secondary);">€${effectiveSaasPrice.toFixed(2)}/Lampe/Monat</strong> (statt €${saasplan.toFixed(2)})`;
-                } else {
-                    nkiInfo.innerHTML = `<i class="fas fa-info-circle"></i> Mit 40% NKI-Förderung beträgt Ihr Eigenanteil nur <strong style="color: var(--secondary);">€${eigenanteil}</strong>`;
-                }
+            if (lampCount >= 50) {
+                const rabattText = discountPercent > 0 ? ` | ${discountPercent}% Mengenrabatt: €${effectiveSaasPrice.toFixed(2)}/Monat` : '';
+                document.getElementById('eigenanteilText').parentElement.innerHTML = 
+                    `<i class="fas fa-info-circle"></i> Mit 40% NKI-Förderung beträgt Ihr Eigenanteil nur <strong style="color: var(--secondary);">€${eigenanteil}</strong>${rabattText}`;
             }
             
             document.getElementById('results').classList.add('show');
         }
+        
+        // Initial recommendation beim Laden
+        updatePhoenixRecommendation();
     </script>
 </body>
 </html>
