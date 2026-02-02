@@ -1171,6 +1171,9 @@
             list-style: none;
             margin: 2rem 0;
             text-align: left;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-features li {
@@ -1243,6 +1246,9 @@
             color: white;
             margin-bottom: 1rem;
             font-weight: 700;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
         }
 
         .case-study-meta {
@@ -1250,6 +1256,7 @@
             gap: 1.5rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
+            min-height: 30px;
         }
 
         .case-study-meta span {
@@ -1267,9 +1274,9 @@
         .case-study-description {
             color: var(--text-dim);
             line-height: 1.8;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-            min-height: 120px;
+            margin-bottom: 2rem;
+            height: 144px;
+            overflow: hidden;
         }
 
         .case-study-results {
