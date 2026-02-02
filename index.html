@@ -1283,14 +1283,14 @@
 
         .case-study-result {
             background: rgba(255, 149, 0, 0.1);
-            padding: 1.5rem 1rem;
+            padding: 1.2rem 1rem;
             border-radius: 8px;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            aspect-ratio: 1.5;
+            min-height: 90px;
         }
 
         .case-study-result-value {
@@ -1302,9 +1302,10 @@
         }
 
         .case-study-result-label {
-            font-size: 0.9rem;
-            color: var(--text-dim);
+            font-size: 0.85rem;
+            color: var(--text);
             line-height: 1.3;
+            font-weight: 500;
         }
 
         /* Impact Section */
@@ -1946,38 +1947,38 @@
                 </h3>
                 
                 <!-- Zwei-Stufen Einsparung -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1000px; margin: 0 auto 2rem; padding: 0 1rem;">
                     <!-- Row 1, Col 1 -->
-                    <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
-                        <div style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1rem;">Schritt 1: LED-Upgrade</div>
-                        <div style="font-size: 3rem; font-weight: 800; color: var(--success);" id="ledSavings">60%</div>
-                        <div style="font-size: 1rem; color: var(--text-dim); margin-top: 1rem;" id="ledSavingsText">150W → 60W</div>
+                    <div style="text-align: center; padding: 2rem 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
+                        <div style="font-size: 0.85rem; color: var(--text); margin-bottom: 1rem; font-weight: 500;">Schritt 1: LED-Upgrade</div>
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--success); line-height: 1;" id="ledSavings">60%</div>
+                        <div style="font-size: 0.95rem; color: var(--text); margin-top: 1rem; font-weight: 500;" id="ledSavingsText">150W → 60W</div>
                     </div>
                     
                     <!-- Row 1, Col 2 -->
-                    <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
-                        <div style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1rem;">Schritt 2: Adaptive Steuerung</div>
-                        <div style="font-size: 3rem; font-weight: 800; color: var(--success);" id="adaptiveSavings">70%</div>
-                        <div style="font-size: 1rem; color: var(--text-dim); margin-top: 1rem;" id="adaptiveSavingsText">60W → 18W</div>
+                    <div style="text-align: center; padding: 2rem 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
+                        <div style="font-size: 0.85rem; color: var(--text); margin-bottom: 1rem; font-weight: 500;">Schritt 2: Adaptive Steuerung</div>
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--success); line-height: 1;" id="adaptiveSavings">70%</div>
+                        <div style="font-size: 0.95rem; color: var(--text); margin-top: 1rem; font-weight: 500;" id="adaptiveSavingsText">60W → 18W</div>
                     </div>
                     
                     <!-- Row 2, Col 1 -->
-                    <div style="text-align: center; padding: 2rem; border: 3px solid var(--secondary); border-radius: 12px; background: rgba(255, 149, 0, 0.15);">
-                        <div style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 1rem; font-weight: 600;">Gesamt-Einsparung</div>
-                        <div style="font-size: 3.5rem; font-weight: 900; color: var(--secondary);" id="totalSavingsPercent">88%</div>
-                        <div style="font-size: 1rem; color: var(--text); margin-top: 1rem; font-weight: 600;" id="totalSavingsText">150W → 18W</div>
+                    <div style="text-align: center; padding: 2rem 1.5rem; border: 3px solid var(--secondary); border-radius: 12px; background: rgba(255, 149, 0, 0.15);">
+                        <div style="font-size: 0.85rem; color: var(--secondary); margin-bottom: 1rem; font-weight: 700;">Gesamt-Einsparung</div>
+                        <div style="font-size: 3.5rem; font-weight: 900; color: var(--secondary); line-height: 1;" id="totalSavingsPercent">88%</div>
+                        <div style="font-size: 0.95rem; color: white; margin-top: 1rem; font-weight: 600;" id="totalSavingsText">150W → 18W</div>
                     </div>
                     
                     <!-- Row 2, Col 2 -->
-                    <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
-                        <div style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1rem;">Lichtleistung</div>
+                    <div style="text-align: center; padding: 2rem 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px;">
+                        <div style="font-size: 0.85rem; color: var(--text); margin-bottom: 1rem; font-weight: 500;">Lichtleistung</div>
                         <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-                            <div style="background: rgba(255,149,0,0.1); padding: 0.8rem; border-radius: 8px;">
-                                <div style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.3rem;">Maximal</div>
+                            <div style="background: rgba(255,149,0,0.15); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,149,0,0.3);">
+                                <div style="font-size: 0.7rem; color: var(--text); margin-bottom: 0.3rem; font-weight: 500;">Maximal</div>
                                 <div style="font-size: 1.8rem; font-weight: 700; color: var(--secondary);" id="lumensMax">9.000 lm</div>
                             </div>
-                            <div style="background: rgba(76,175,80,0.1); padding: 0.8rem; border-radius: 8px;">
-                                <div style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.3rem;">Gedimmt (Ø)</div>
+                            <div style="background: rgba(76,175,80,0.15); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(76,175,80,0.3);">
+                                <div style="font-size: 0.7rem; color: white; margin-bottom: 0.3rem; font-weight: 500;">Gedimmt (Ø)</div>
                                 <div style="font-size: 1.8rem; font-weight: 700; color: var(--success);" id="lumensDimmed">2.700 lm</div>
                             </div>
                         </div>
