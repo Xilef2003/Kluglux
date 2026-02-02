@@ -930,10 +930,9 @@
             border-radius: 12px;
             border-left: 4px solid var(--secondary);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1rem;
             transition: all 0.3s;
-            text-align: left;
         }
 
         .tech-specs li:hover {
@@ -943,12 +942,27 @@
 
         .tech-specs li i {
             color: var(--secondary);
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .tech-specs li div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
         }
 
         .tech-specs li strong {
             color: white;
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+
+        .tech-specs li span {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
         /* ROI Calculator Section */
@@ -1637,7 +1651,7 @@
         
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-radar"></i></div>
+                <div class="feature-icon"><i class="fas fa-broadcast-tower"></i></div>
                 <h3>24 GHz mmWave Radar</h3>
                 <p>DSGVO-konforme Bewegungserkennung ohne Kameras. Erfasst Fußgänger, Radfahrer und Fahrzeuge mit 95% Genauigkeit bei jedem Wetter.</p>
             </div>
@@ -1763,14 +1777,62 @@
                 <p>Unsere patentierte Technologie kombiniert hochpräzise mmWave-Radar-Sensoren mit KI-basierten Algorithmen für optimale Energieeffizienz und Sicherheit.</p>
                 
                 <ul class="tech-specs">
-                    <li><i class="fas fa-broadcast-tower"></i> <strong>24 GHz mmWave Radar</strong> – DSGVO-konform, wetterfest</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>6-Layer False Detection Filtering</strong> – 95% weniger Fehlauslösungen</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Geschwindigkeitsbasierte Objekterkennung</strong> (0,3-15 m/s)</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>LED-Modul 20-80W dimmbar</strong> – Maximal energieeffizient</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Wetteradaptive Helligkeit</strong> via OpenMeteo Integration</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>LTE Cat-M1/NB-IoT</strong> mit Multi-Provider Failover</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Over-The-Air (OTA)</strong> Firmware-Updates</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>50.000h LED-Lebensdauer</strong> (Citizen CLU048)</li>
+                    <li>
+                        <i class="fas fa-broadcast-tower"></i>
+                        <div>
+                            <strong>24 GHz mmWave Radar</strong>
+                            <span>DSGVO-konform, wetterfest</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-filter"></i>
+                        <div>
+                            <strong>6-Layer False Detection Filtering</strong>
+                            <span>95% weniger Fehlauslösungen</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-tachometer-alt"></i>
+                        <div>
+                            <strong>Geschwindigkeitsbasierte Objekterkennung</strong>
+                            <span>(0,3-15 m/s)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <strong>LED-Modul 20-80W dimmbar</strong>
+                            <span>Maximal energieeffizient</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-cloud-sun-rain"></i>
+                        <div>
+                            <strong>Wetteradaptive Helligkeit</strong>
+                            <span>via OpenMeteo Integration</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-signal"></i>
+                        <div>
+                            <strong>LTE Cat-M1/NB-IoT</strong>
+                            <span>mit Multi-Provider Failover</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-sync-alt"></i>
+                        <div>
+                            <strong>Over-The-Air (OTA)</strong>
+                            <span>Firmware-Updates</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>50.000h LED-Lebensdauer</strong>
+                            <span>(Citizen CLU048)</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
