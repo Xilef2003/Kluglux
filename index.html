@@ -2681,11 +2681,11 @@
                 <h2>Bereit für die Zukunft?</h2>
                 <p>Starten Sie jetzt Ihr Pilotprojekt und profitieren Sie von 24 Monaten kostenlosem SaaS-Dashboard. Wir unterstützen Sie bei der NKI-Antragstellung.</p>
                 <div class="cta-buttons">
-                    <a href="/cdn-cgi/l/email-protection#3950575f567952554c5e554c41175d5c" class="btn-primary"><i class="fas fa-envelope"></i> Pilotprojekt anfragen</a>
+                    <a href="mailto:info@kluglux.de" class="btn-primary"><i class="fas fa-envelope"></i> Pilotprojekt anfragen</a>
                     <a href="#rechner" class="btn-outline"><i class="fas fa-calculator"></i> ROI berechnen</a>
                 </div>
                 <div class="cta-contact">
-                    <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection#5e373038311e35322b39322b26703a3b"><span class="__cf_email__" data-cfemail="f29b9c949db2999e87959e878adc9697">[email&#160;protected]</span></a> · <i class="fas fa-map-marker-alt"></i> Bonn, Deutschland · <i class="fas fa-globe"></i> <a href="https://www.kluglux.de">www.kluglux.de</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@kluglux.de">info@kluglux.de</a> · <i class="fas fa-map-marker-alt"></i> Bonn, Deutschland · <i class="fas fa-globe"></i> <a href="https://www.kluglux.de">www.kluglux.de</a></p>
                 </div>
             </div>
         </div>
@@ -2743,7 +2743,8 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+    <script>
         // ─── Mobile Navigation ───
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobileNav');
@@ -2860,7 +2861,7 @@
             document.getElementById('phoenixMax').textContent = phoenixMax + 'W';
             document.getElementById('phoenixAvg').textContent = phoenixAvg + 'W';
             document.getElementById('phoenixLumens').textContent = lumens.toLocaleString('de-DE');
-            document.getElementById('recommendationText').textContent = recommendText + ' | Hardware: €' + hardwarePrice;
+            document.getElementById('recommendationText').textContent = recommendText + ' | Hardware: \u20AC' + hardwarePrice;
 
             return { phoenixMax, phoenixAvg, hardwarePrice, modelName };
         }
@@ -2872,7 +2873,9 @@
             const energyCost = parseFloat(document.getElementById('energyCost').value);
             const saasplan = parseFloat(document.getElementById('saasplan').value);
 
-            const { phoenixMax, phoenixAvg, hardwarePrice } = rec;
+            const phoenixMax = rec.phoenixMax;
+            const phoenixAvg = rec.phoenixAvg;
+            const hardwarePrice = rec.hardwarePrice;
 
             let saasBasic, saasPro, saasEnterprise;
             switch (phoenixMax) {
@@ -2898,11 +2901,11 @@
             const phoenixAvgLumens = phoenixAvg * 150;
 
             document.getElementById('ledSavings').textContent = ledSavingPercent + '%';
-            document.getElementById('ledSavingsText').textContent = currentPower + 'W → ' + phoenixMax + 'W';
+            document.getElementById('ledSavingsText').textContent = currentPower + 'W \u2192 ' + phoenixMax + 'W';
             document.getElementById('adaptiveSavings').textContent = adaptiveSavingPercent + '%';
-            document.getElementById('adaptiveSavingsText').textContent = phoenixMax + 'W → ' + phoenixAvg + 'W';
+            document.getElementById('adaptiveSavingsText').textContent = phoenixMax + 'W \u2192 ' + phoenixAvg + 'W';
             document.getElementById('totalSavingsPercent').textContent = totalSavingPercent + '%';
-            document.getElementById('totalSavingsText').textContent = currentPower + 'W → ' + phoenixAvg + 'W';
+            document.getElementById('totalSavingsText').textContent = currentPower + 'W \u2192 ' + phoenixAvg + 'W';
             document.getElementById('lumensMax').textContent = phoenixMaxLumens.toLocaleString('de-DE') + ' lm';
             document.getElementById('lumensDimmed').textContent = phoenixAvgLumens.toLocaleString('de-DE') + ' lm';
 
@@ -2926,13 +2929,24 @@
             const roiMonths = Math.ceil(eigenanteil / (energySavingsPerYear / 12));
             const co2Savings = (savedKWh * 0.485 / 1000).toFixed(1);
 
-            document.getElementById('yearSavings').textContent = '€' + Math.round(energySavingsPerYear).toLocaleString('de-DE');
+            document.getElementById('yearSavings').textContent = '\u20AC' + Math.round(energySavingsPerYear).toLocaleString('de-DE');
             document.getElementById('roiMonths').textContent = roiMonths;
             document.getElementById('co2Savings').textContent = co2Savings + 't';
-            document.getElementById('fiveyearSavings').textContent = '€' + Math.round(fiveYearSavings).toLocaleString('de-DE');
-            document.getElementById('eigenanteilText').textContent = '€' + eigenanteil.toLocaleString('de-DE');
+            document.getElementById('fiveyearSavings').textContent = '\u20AC' + Math.round(fiveYearSavings).toLocaleString('de-DE');
+            document.getElementById('eigenanteilText').textContent = '\u20AC' + eigenanteil.toLocaleString('de-DE');
 
-            let infoHTML = '<i class="fas fa-info-circle"></i> Mit 40 % NKI-Förderung beträgt Ihr Eigenanteil nur <strong>' + '€' + eigenanteil.toLocaleString('de-DE') + '</strong>';
-            infoHTML += '<br><i class="fas fa-gift" style="margin-top: 0.5rem; display: inline-block;"></i> <strong>24 Monate SaaS inklusive!</strong> Danach €' + effectiveSaasPrice.toFixed(2) + '/Lampe/Monat';
+            var infoEl = document.getElementById('eigenanteilInfo');
+            var infoStr = '<i class="fas fa-info-circle"></i> Mit 40 % NKI-F\u00F6rderung betr\u00E4gt Ihr Eigenanteil nur <strong>\u20AC' + eigenanteil.toLocaleString('de-DE') + '</strong>';
+            infoStr += '<br><i class="fas fa-gift" style="margin-top:0.5rem;display:inline-block"></i> <strong>24 Monate SaaS inklusive!</strong> Danach \u20AC' + effectiveSaasPrice.toFixed(2) + '/Lampe/Monat';
             if (discountPercent > 0) {
-                infoHTML += ' <span style="color: var(--green);">(' + discountPerce
+                infoStr += ' <span style="color:var(--green)">(' + discountPercent + '% Mengenrabatt)</span>';
+            }
+            infoEl.innerHTML = infoStr;
+
+            document.getElementById('results').classList.add('show');
+        }
+
+        updatePhoenixRecommendation();
+    </script>
+</body>
+</html>
