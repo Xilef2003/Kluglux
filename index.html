@@ -3,135 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KlugLux – Die Zukunft der Straße: Hell. Klug. Sicher.</title>
-    <meta name="description" content="KlugLux: Intelligente adaptive LED-Straßenbeleuchtung mit mmWave-Radar-Technologie. Bis zu 88% Energieeinsparung für Kommunen. NKI-förderfähig, DSGVO-konform.">
-    <meta name="keywords" content="KlugLux, Smart City Beleuchtung, intelligente Straßenbeleuchtung, adaptive LED, mmWave Radar, Energieeinsparung Kommune, NKI Förderung, Aurora, Lumen, Nova, Phoenix">
+    <title>KlugLux – Intelligente Straßenbeleuchtung | Hell. Klug. Sicher.</title>
+    <meta name="description" content="KlugLux: Adaptive LED-Straßenbeleuchtung mit mmWave-Radar. Bis zu 88% Energieeinsparung für Kommunen. NKI-förderfähig, DSGVO-konform.">
+    <meta name="keywords" content="KlugLux, Smart City, intelligente Straßenbeleuchtung, adaptive LED, mmWave Radar, Energieeinsparung Kommune, NKI Förderung, Aurora, Lumen, Nova, Phoenix">
     <meta name="author" content="KlugLux UG (haftungsbeschränkt)">
     <meta name="robots" content="index, follow">
+    
     <link rel="icon" type="image/jpeg" href="./KlugLux.jpg">
     <link rel="apple-touch-icon" href="./KlugLux.jpg">
+    
     <meta property="og:type" content="website">
     <meta property="og:title" content="KlugLux – Die Zukunft der Straße: Hell. Klug. Sicher.">
-    <meta property="og:description" content="Intelligente adaptive Straßenbeleuchtung mit mmWave-Radar. Bis zu 88% Energieeinsparung. NKI-förderfähig.">
+    <meta property="og:description" content="Adaptive Straßenbeleuchtung mit mmWave-Radar. Bis zu 88% Energieeinsparung. NKI-förderfähig.">
     <meta property="og:url" content="https://www.kluglux.de">
     <meta property="og:site_name" content="KlugLux">
     <link rel="canonical" href="https://www.kluglux.de">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #0a0e17;
-            --bg-card: #111827;
-            --bg-elevated: #1a2235;
-            --amber: #f59e0b;
-            --amber-light: #fbbf24;
-            --amber-dark: #d97706;
-            --amber-glow: rgba(245, 158, 11, 0.15);
-            --green: #34d399;
-            --green-glow: rgba(52, 211, 153, 0.15);
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
+            --primary: #1a2f4a;
+            --primary-light: #2a4a6f;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --surface: #0c1220;
+            --surface-raised: #111a2e;
+            --surface-overlay: #162037;
+            --text-primary: #e8ecf1;
+            --text-secondary: #8899ae;
+            --text-muted: #5a6b80;
+            --success: #34d399;
             --border: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(245, 158, 11, 0.3);
+            --border-accent: rgba(245, 158, 11, 0.25);
+            --glow: rgba(245, 158, 11, 0.15);
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
             --radius-xl: 28px;
+            --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.3);
+            --shadow-glow: 0 8px 40px rgba(245, 158, 11, 0.2);
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text-secondary);
-            line-height: 1.7;
+            font-family: var(--font-display);
+            background: var(--surface);
+            color: var(--text-primary);
             overflow-x: hidden;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Outfit', sans-serif;
-            color: var(--text-primary);
-            line-height: 1.2;
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            display: block;
         }
 
-        /* ═══════════════════════════════════════
-           ANNOUNCEMENT BAR
-        ═══════════════════════════════════════ */
-        .announcement-bar {
-            background: linear-gradient(135deg, var(--amber-dark), var(--amber));
-            color: white;
+        .section-heading {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header .section-desc { margin: 0.5rem auto 0; }
+
+        section { padding: 6rem 0; }
+
+        /* DISCLAIMER */
+        .disclaimer-banner {
+            background: var(--accent);
+            color: #1a1a1a;
             text-align: center;
-            padding: 0.65rem 1.5rem;
-            font-size: 0.9rem;
+            padding: 0.65rem 2rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            letter-spacing: 0.02em;
             position: relative;
             z-index: 1001;
         }
 
-        .announcement-bar span {
-            opacity: 0.9;
-            display: inline-block;
-            line-height: 1.4;
-        }
+        .disclaimer-banner span { display: inline-flex; align-items: center; gap: 0.6rem; }
 
-        @media (max-width: 768px) {
-            .announcement-bar {
-                font-size: 0.75rem;
-                padding: 0.5rem 1rem;
-            }
-        }
-
-        /* ═══════════════════════════════════════
-           NAVIGATION
-        ═══════════════════════════════════════ */
-        .navbar {
+        /* NAV */
+        .nav {
             position: sticky;
             top: 0;
             width: 100%;
-            background: rgba(10, 14, 23, 0.85);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(12, 18, 32, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
             border-bottom: 1px solid var(--border);
             transition: box-shadow 0.3s;
         }
 
-        .navbar.scrolled {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
+        .nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.4); }
 
         .nav-inner {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0.9rem 2rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 72px;
         }
 
-        .logo img {
-            height: 48px;
-            width: auto;
-            transition: opacity 0.3s;
-        }
-
-        .logo img:hover { opacity: 0.85; }
+        .nav-logo img { height: 48px; width: auto; display: block; }
 
         .nav-links {
             display: flex;
-            gap: 2.2rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
@@ -139,11 +147,9 @@
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-family: 'Outfit', sans-serif;
             font-weight: 500;
             font-size: 0.95rem;
-            letter-spacing: 0.01em;
-            transition: color 0.25s;
+            transition: color 0.2s;
             position: relative;
         }
 
@@ -154,92 +160,92 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--amber);
-            transition: width 0.3s ease;
-            border-radius: 1px;
+            background: var(--accent);
+            transition: width 0.25s ease;
         }
 
-        .nav-links a:hover { color: var(--text-primary); }
-        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover, .nav-links a:focus-visible { color: var(--text-primary); }
+        .nav-links a:hover::after, .nav-links a:focus-visible::after { width: 100%; }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--amber);
-            color: #0a0e17;
-            padding: 0.7rem 1.6rem;
+            background: var(--accent);
+            color: #1a1a1a;
+            padding: 0.7rem 1.5rem;
             border-radius: var(--radius-sm);
             text-decoration: none;
-            font-family: 'Outfit', sans-serif;
             font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 0.02em;
-            transition: all 0.25s;
+            font-size: 0.92rem;
             border: none;
             cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
         }
 
-        .btn-primary:hover {
-            background: var(--amber-light);
+        .btn-primary:hover, .btn-primary:focus-visible {
             transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+            box-shadow: var(--shadow-glow);
+            background: var(--accent-light);
         }
 
-        .btn-outline {
+        .btn-secondary {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             background: transparent;
-            color: var(--amber);
-            padding: 0.7rem 1.6rem;
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+            padding: 0.7rem 1.5rem;
             border-radius: var(--radius-sm);
             text-decoration: none;
-            font-family: 'Outfit', sans-serif;
             font-weight: 600;
-            font-size: 0.9rem;
-            border: 1.5px solid var(--amber);
-            transition: all 0.25s;
+            font-size: 0.92rem;
             cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .btn-outline:hover {
+        .btn-secondary:hover, .btn-secondary:focus-visible {
             background: rgba(245, 158, 11, 0.1);
-            transform: translateY(-1px);
+            color: var(--accent-light);
+            border-color: var(--accent-light);
         }
 
-        /* Hamburger */
-        .hamburger {
+        /* Mobile Menu */
+        .nav-toggle {
             display: none;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            background: none;
+            border: none;
             padding: 4px;
             z-index: 1002;
         }
 
-        .hamburger span {
-            display: block;
+        .nav-toggle span {
             width: 24px;
-            height: 2px;
+            height: 2.5px;
             background: var(--text-primary);
             border-radius: 2px;
             transition: all 0.3s;
+            display: block;
         }
 
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5.5px); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5.5px); }
 
-        .mobile-nav {
+        .mobile-menu {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100dvh;
-            background: rgba(10, 14, 23, 0.97);
-            backdrop-filter: blur(24px);
+            height: 100vh;
+            background: rgba(12, 18, 32, 0.98);
+            backdrop-filter: blur(20px);
             z-index: 999;
             flex-direction: column;
             align-items: center;
@@ -247,239 +253,165 @@
             gap: 2rem;
         }
 
-        .mobile-nav.open { display: flex; }
+        .mobile-menu.open { display: flex; }
 
-        .mobile-nav a {
+        .mobile-menu a {
             color: var(--text-primary);
             text-decoration: none;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
             transition: color 0.2s;
         }
 
-        .mobile-nav a:hover { color: var(--amber); }
+        .mobile-menu a:hover { color: var(--accent); }
 
-        /* ═══════════════════════════════════════
-           HERO
-        ═══════════════════════════════════════ */
+        /* HERO */
         .hero {
             min-height: 92vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
-            padding: 6rem 2rem 4rem;
+            padding: 4rem 0;
         }
 
-        .hero-glow {
+        .hero-bg {
             position: absolute;
-            top: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 50%, rgba(26, 47, 74, 0.4), transparent),
+                radial-gradient(ellipse 50% 50% at 80% 60%, var(--glow), transparent);
             pointer-events: none;
         }
 
-        .hero-grid-bg {
+        .hero-grid-pattern {
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 70%);
-            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 70%);
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
         }
 
-        .hero-content {
-            max-width: 800px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
+        .hero-content { position: relative; z-index: 2; max-width: 720px; }
 
-        .hero-badge {
-            display: inline-flex;
+        .hero-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.25);
-            border-radius: 100px;
-            padding: 0.45rem 1.2rem;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--amber);
-            margin-bottom: 2rem;
-            animation: fadeUp 0.8s ease-out;
+            gap: 0.75rem;
+            animation: fadeInUp 0.7s ease-out both;
         }
+
+        .hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--accent); }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-            animation: fadeUp 0.8s ease-out 0.1s both;
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            color: white;
+            animation: fadeInUp 0.7s ease-out 0.1s both;
         }
 
-        .hero h1 .accent {
-            background: linear-gradient(135deg, var(--amber), var(--amber-light));
+        .hero h1 .accent-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero-tagline {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            font-weight: 500;
+        .hero-subtitle {
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-            animation: fadeUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-sub {
-            font-size: 1.05rem;
-            color: var(--text-muted);
+            line-height: 1.8;
             margin-bottom: 2.5rem;
-            animation: fadeUp 0.8s ease-out 0.3s both;
+            max-width: 560px;
+            animation: fadeInUp 0.7s ease-out 0.2s both;
         }
 
         .hero-actions {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
-            animation: fadeUp 0.8s ease-out 0.4s both;
+            margin-bottom: 3.5rem;
+            animation: fadeInUp 0.7s ease-out 0.3s both;
         }
 
-        .hero-trust {
+        .hero-badges {
             display: flex;
-            gap: 2.5rem;
-            justify-content: center;
+            gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 3.5rem;
-            animation: fadeUp 0.8s ease-out 0.55s both;
+            animation: fadeInUp 0.7s ease-out 0.4s both;
         }
 
-        .trust-item {
+        .badge {
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 0.9rem;
             font-weight: 500;
         }
 
-        .trust-item i {
-            color: var(--green);
-            font-size: 1.1rem;
-        }
+        .badge i { color: var(--success); font-size: 1rem; }
 
-        @keyframes fadeUp {
+        @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ═══════════════════════════════════════
-           STATS BAR
-        ═══════════════════════════════════════ */
+        /* STATS */
         .stats-bar {
-            background: var(--bg-card);
+            background: var(--surface-raised);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            padding: 3.5rem 2rem;
+            padding: 3rem 0;
         }
 
-        .stats-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, border-color 0.3s;
         }
 
-        .stat-item { text-align: center; }
+        .stat-item:hover { transform: translateY(-4px); border-color: var(--border-accent); }
 
         .stat-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 800;
-            color: var(--amber);
+            color: var(--accent);
             line-height: 1;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-mono);
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
+        .stat-label { color: var(--text-secondary); font-size: 0.88rem; font-weight: 500; }
 
-        /* ═══════════════════════════════════════
-           SECTION COMMONS
-        ═══════════════════════════════════════ */
-        .section {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-        }
-
-        .section-dark {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--amber);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-desc {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ═══════════════════════════════════════
-           FEATURES
-        ═══════════════════════════════════════ */
+        /* FEATURES */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 1.5rem;
         }
 
         .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background: var(--surface-raised);
+            padding: 2.5rem;
             border-radius: var(--radius-lg);
-            padding: 2.5rem 2rem;
-            transition: all 0.35s ease;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
@@ -487,221 +419,151 @@
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--amber), var(--amber-light));
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
         }
 
         .feature-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+            border-color: var(--border-accent);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
         }
 
         .feature-card:hover::before { transform: scaleX(1); }
 
         .feature-icon {
-            width: 52px;
-            height: 52px;
-            background: var(--amber-glow);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            border-radius: 14px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent-dark));
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
-            color: var(--amber);
+            font-size: 1.4rem;
+            color: white;
             margin-bottom: 1.5rem;
         }
 
-        .feature-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
+        .feature-card h3 { font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; }
 
-        .feature-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        /* ═══════════════════════════════════════
-           TECHNOLOGY
-        ═══════════════════════════════════════ */
+        /* TECH SECTION */
         .tech-section {
-            padding: 6rem 2rem;
+            background: var(--surface-raised);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
-        .tech-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
+        .tech-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 
-        /* Lamp Visualization */
         .tech-visual {
             position: relative;
-            height: 480px;
-            width: 100%;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(ellipse at 50% 90%, rgba(245, 158, 11, 0.06), transparent 60%);
-            margin-bottom: 4rem;
-            overflow: visible;
+            background: radial-gradient(ellipse at 50% 100%, var(--glow), transparent 60%);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
         }
 
-        .tech-diagram {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            height: 440px;
-        }
+        .tech-diagram { position: relative; width: 100%; max-width: 500px; height: 420px; }
 
-        .lamp-group {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
+        .lamp { position: absolute; width: 140px; height: 340px; }
+        .lamp.left { left: 0; top: 50%; transform: translateY(-50%) scale(0.7); opacity: 0.6; }
+        .lamp.center { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+        .lamp.right { right: 0; top: 50%; transform: translateY(-50%) scale(0.7); opacity: 0.6; }
 
-        .single-lamp {
-            position: absolute;
-            width: 160px;
-            height: 380px;
-        }
-
-        .single-lamp.left {
-            left: 8%;
-            top: 50%;
-            transform: translateY(-50%) scale(0.7);
-            opacity: 0.6;
-        }
-
-        .single-lamp.center {
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .single-lamp.right {
-            right: 8%;
-            top: 50%;
-            transform: translateY(-50%) scale(0.7);
-            opacity: 0.6;
-        }
-
-        .lamp-post {
+        .lamp-pole {
             position: absolute;
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             width: 12px;
-            height: 280px;
-            background: linear-gradient(to right, #2d3340, #3d4450, #2d3340);
+            height: 250px;
+            background: linear-gradient(to right, #3d4450, #505864, #3d4450);
             border-radius: 6px;
         }
 
-        .lamp-post::before {
+        .lamp-pole::after {
             content: '';
             position: absolute;
             bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 30px;
-            height: 12px;
-            background: #1a1d22;
+            width: 28px;
+            height: 10px;
+            background: #2a2e36;
             border-radius: 6px;
         }
 
-        .street-lamp-head {
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 130px;
-            height: 80px;
-            z-index: 7;
-        }
-
-        .lamp-mount {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 20px;
-            background: linear-gradient(180deg, #3d4450, #2d3340);
-            border-radius: 10px 10px 0 0;
-        }
+        .lamp-head { position: absolute; top: 30px; left: 50%; transform: translateX(-50%); width: 120px; height: 65px; }
 
         .lamp-housing {
             position: absolute;
-            top: 16px;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 130px;
-            height: 58px;
-            background: linear-gradient(180deg, #1e3a5f, #152945);
+            width: 120px;
+            height: 55px;
+            background: linear-gradient(180deg, var(--primary), var(--primary-light));
             border-radius: 10px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
-        .lamp-light {
+        .lamp-glow {
             position: absolute;
-            bottom: 4px;
+            bottom: 3px;
             left: 50%;
             transform: translateX(-50%);
-            width: 112px;
-            height: 38px;
-            background: linear-gradient(180deg, var(--amber-light), var(--amber));
-            border-radius: 0 0 12px 12px;
-            box-shadow: 0 12px 40px rgba(245, 158, 11, 0.6), 0 4px 60px rgba(245, 158, 11, 0.4);
+            width: 105px;
+            height: 36px;
+            background: linear-gradient(180deg, var(--accent-light), var(--accent));
+            border-radius: 0 0 10px 10px;
             transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 40px rgba(245, 158, 11, 0.6), 0 4px 60px rgba(245, 158, 11, 0.4);
         }
 
-        .single-lamp.dimmed .lamp-light {
-            background: linear-gradient(180deg, rgba(251, 191, 36, 0.45), rgba(245, 158, 11, 0.35));
-            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25), 0 3px 30px rgba(245, 158, 11, 0.18);
+        .lamp.dimmed .lamp-glow {
+            background: linear-gradient(180deg, rgba(251, 191, 36, 0.4), rgba(245, 158, 11, 0.3));
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.25);
         }
 
-        .single-lamp.wave-active .lamp-light {
-            background: linear-gradient(180deg, var(--amber-light), var(--amber));
-            box-shadow: 0 14px 56px rgba(245, 158, 11, 0.85), 0 5px 100px rgba(245, 158, 11, 0.65);
+        .lamp.wave-active .lamp-glow {
+            background: linear-gradient(180deg, var(--accent-light), var(--accent));
+            box-shadow: 0 15px 60px rgba(245, 158, 11, 0.85), 0 5px 100px rgba(245, 158, 11, 0.6);
         }
 
         .lamp-sensor {
             position: absolute;
-            top: 38px;
+            top: 32px;
             left: 50%;
             transform: translateX(-50%);
-            width: 32px;
-            height: 32px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0.08));
-            border: 2px solid var(--amber);
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--accent);
             border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0.08));
             z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .lamp-sensor::before {
             content: '';
-            width: 12px;
-            height: 12px;
-            background: var(--amber);
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px; height: 10px;
+            background: var(--accent);
             border-radius: 50%;
-            box-shadow: 0 0 12px var(--amber);
+            box-shadow: 0 0 12px var(--accent);
         }
 
-        .single-lamp.center .lamp-sensor {
-            animation: sensorPulse 2.5s ease-in-out infinite;
-        }
+        .lamp.center .lamp-sensor { animation: sensorPulse 2.5s ease-in-out infinite; }
 
         @keyframes sensorPulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
@@ -710,36 +572,32 @@
 
         .radar-cone {
             position: absolute;
-            top: 110px;
+            top: 100px;
             left: 50%;
             transform: translateX(-50%);
-            width: 0;
-            height: 0;
+            width: 0; height: 0;
             border-left: 100px solid transparent;
             border-right: 100px solid transparent;
-            border-top: 200px solid rgba(245, 158, 11, 0.08);
+            border-top: 180px solid rgba(245, 158, 11, 0.1);
             filter: blur(12px);
             z-index: 2;
-            animation: radarFade 4s ease-in-out infinite;
+            animation: radarScan 4s ease-in-out infinite;
         }
 
-        @keyframes radarFade {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.7; }
-        }
+        @keyframes radarScan { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.7; } }
 
-        .wave-connection {
+        .wave-line {
             position: absolute;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--amber), var(--amber), transparent);
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent), transparent);
             top: 50%;
             z-index: 1;
             opacity: 0;
-            animation: waveFlow 4s ease-in-out infinite;
+            animation: waveFlow 3s ease-in-out infinite;
         }
 
-        .wave-connection.left-to-center { left: 18%; width: 32%; animation-delay: 0.5s; }
-        .wave-connection.center-to-right { right: 18%; width: 32%; animation-delay: 1.5s; }
+        .wave-line.left { left: 10%; width: 30%; animation-delay: 0.5s; }
+        .wave-line.right { right: 10%; width: 30%; animation-delay: 1.5s; }
 
         @keyframes waveFlow {
             0%, 100% { opacity: 0; transform: scaleX(0); }
@@ -747,1296 +605,518 @@
             70% { opacity: 0.8; }
         }
 
-        .wave-label {
+        .wave-badge {
             position: absolute;
-            top: 10px;
+            top: 16px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 100px;
-            padding: 0.4rem 1.1rem;
-            color: var(--amber);
-            font-family: 'Outfit', sans-serif;
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            color: var(--accent);
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             z-index: 20;
             white-space: nowrap;
         }
 
-        /* Info Points — Desktop overlay */
-        .info-points {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
+        .tech-specs-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
 
-        .info-point {
-            position: absolute;
-            width: 56px;
-            height: 56px;
-            background: var(--bg-elevated);
-            border: 1.5px solid rgba(245, 158, 11, 0.4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--amber);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            z-index: 15;
-            pointer-events: all;
-        }
-
-        .info-point:hover,
-        .info-point.active {
-            background: var(--amber);
-            color: var(--bg);
-            transform: scale(1.1);
-            box-shadow: 0 8px 28px rgba(245, 158, 11, 0.5);
-        }
-
-        .info-point:hover .info-tooltip,
-        .info-point.active .info-tooltip { opacity: 1; visibility: visible; transform: translateY(0); }
-
-        .info-point:nth-child(1) { top: 8%; left: 4%; }
-        .info-point:nth-child(2) { top: 8%; right: 4%; }
-        .info-point:nth-child(3) { bottom: 8%; left: 4%; }
-        .info-point:nth-child(4) { bottom: 8%; right: 4%; }
-
-        .info-tooltip {
-            position: absolute;
-            background: var(--bg-elevated);
-            border: 1.5px solid rgba(245, 158, 11, 0.3);
-            border-radius: var(--radius-md);
-            padding: 1.5rem 1.8rem;
-            width: 340px;
-            max-width: 85vw;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            z-index: 30;
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
-            transform: translateY(8px);
-        }
-
-        .info-point:nth-child(1) .info-tooltip,
-        .info-point:nth-child(2) .info-tooltip {
-            top: calc(100% + 14px);
-        }
-
-        .info-point:nth-child(1) .info-tooltip { left: 0; }
-        .info-point:nth-child(2) .info-tooltip { right: 0; }
-
-        .info-point:nth-child(3) .info-tooltip,
-        .info-point:nth-child(4) .info-tooltip {
-            bottom: calc(100% + 14px);
-        }
-
-        .info-point:nth-child(3) .info-tooltip { left: 0; }
-        .info-point:nth-child(4) .info-tooltip { right: 0; }
-
-        .info-tooltip h4 {
-            color: var(--amber);
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .info-tooltip p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        /* ═══════════════════════════════════════
-           MOBILE TECH FEATURES — replaces info-point overlay on small screens
-        ═══════════════════════════════════════ */
-        .tech-features-mobile {
-            display: none;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .tech-feat-card {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.2rem;
+        .tech-specs-list li {
+            padding: 1.2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--accent);
             display: flex;
             align-items: flex-start;
-            gap: 0.8rem;
-            transition: border-color 0.25s;
+            gap: 1rem;
+            transition: all 0.2s;
         }
 
-        .tech-feat-card:active {
-            border-color: var(--amber);
-        }
+        .tech-specs-list li:hover { background: rgba(255, 255, 255, 0.06); transform: translateX(4px); }
+        .tech-specs-list li i { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+        .tech-specs-list li strong { display: block; color: white; font-size: 0.95rem; margin-bottom: 0.2rem; }
+        .tech-specs-list li span { color: var(--text-secondary); font-size: 0.85rem; }
 
-        .tech-feat-icon {
-            width: 38px;
-            height: 38px;
-            min-width: 38px;
-            background: var(--amber-glow);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--amber);
-            font-size: 0.95rem;
-        }
-
-        .tech-feat-card h4 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.2rem;
-            line-height: 1.3;
-        }
-
-        .tech-feat-card p {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* Tech Specs Grid */
-        .tech-content {
-            text-align: center;
+        /* CALCULATOR */
+        .calculator-card {
+            background: var(--surface-raised);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            border: 1px solid var(--border);
             max-width: 960px;
             margin: 0 auto;
         }
 
-        .tech-content h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
+        .calc-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .tech-content > p {
-            color: var(--text-muted);
+        .input-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .input-group label { color: var(--text-secondary); font-weight: 600; font-size: 0.88rem; }
+
+        .input-group input, .input-group select {
+            padding: 0.85rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .input-group input:focus, .input-group select:focus { border-color: var(--accent); }
+        .input-group select option { background: var(--surface-raised); color: var(--text-primary); }
+
+        .recommendation-box {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1.5px solid var(--border-accent);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .recommendation-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+        .recommendation-header i { font-size: 1.6rem; color: var(--accent); }
+        .recommendation-header h3 { color: var(--accent); font-size: 1.15rem; margin: 0; }
+        .recommendation-header p { color: var(--text-secondary); font-size: 0.88rem; margin: 0; }
+
+        .recommendation-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; }
+        .recommendation-stats .rec-value { font-size: 1.5rem; font-weight: 800; color: var(--accent); font-family: var(--font-mono); }
+        .recommendation-stats .rec-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            border: none;
+            border-radius: var(--radius-sm);
+            color: #1a1a1a;
             font-size: 1.05rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.25);
+        }
+
+        .btn-calculate:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+
+        .results-panel {
+            display: none;
+            margin-top: 2.5rem;
+            padding: 2.5rem;
+            background: rgba(245, 158, 11, 0.05);
+            border-radius: var(--radius-lg);
+            border: 1.5px solid var(--border-accent);
+        }
+
+        .results-panel.show { display: block; animation: fadeInUp 0.4s ease-out; }
+        .results-panel h3 { text-align: center; color: white; font-size: 1.3rem; margin-bottom: 2rem; }
+
+        .savings-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+
+        .savings-step {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--radius-md);
+        }
+
+        .savings-step .step-label { font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.8rem; font-weight: 500; }
+        .savings-step .step-value { font-size: 2.4rem; font-weight: 800; color: var(--success); font-family: var(--font-mono); line-height: 1; }
+        .savings-step .step-detail { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.6rem; font-weight: 500; }
+        .savings-step.highlight { border: 2px solid var(--accent); background: rgba(245, 158, 11, 0.08); }
+        .savings-step.highlight .step-value { color: var(--accent); }
+
+        .lumens-box {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--radius-md);
+        }
+
+        .lumens-box .step-label { font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.8rem; font-weight: 500; }
+        .lumens-row { display: flex; flex-direction: column; gap: 0.5rem; }
+        .lumens-item { padding: 0.6rem; border-radius: var(--radius-sm); }
+        .lumens-item.max { background: rgba(245, 158, 11, 0.1); border: 1px solid var(--border-accent); }
+        .lumens-item.dim { background: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.25); }
+        .lumens-item .lm-label { font-size: 0.65rem; color: var(--text-secondary); margin-bottom: 0.15rem; font-weight: 500; }
+        .lumens-item.max .lm-value { font-size: 1.3rem; font-weight: 700; color: var(--accent); font-family: var(--font-mono); }
+        .lumens-item.dim .lm-value { font-size: 1.3rem; font-weight: 700; color: var(--success); font-family: var(--font-mono); }
+
+        .results-numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .result-box { text-align: center; }
+        .result-box .r-value { font-size: 2rem; font-weight: 800; color: var(--accent); font-family: var(--font-mono); margin-bottom: 0.3rem; }
+        .result-box .r-label { font-size: 0.82rem; color: var(--text-secondary); }
+
+        .results-info { text-align: center; margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8; }
+        .results-info strong { color: var(--accent); }
+
+        /* PRICING */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            padding: 1.8rem 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .promo-banner h3 { color: #1a1a1a; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .promo-banner p { color: rgba(26, 26, 26, 0.8); font-size: 1.05rem; }
+
+        .hardware-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 4rem; }
+
+        .hw-card {
+            padding: 1.8rem 1.2rem;
+            background: var(--surface-raised);
+            border-radius: var(--radius-md);
+            border: 1.5px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .hw-card:hover { border-color: var(--border-accent); transform: translateY(-4px); }
+        .hw-card .hw-name { font-size: 1.1rem; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; }
+        .hw-card .hw-price { font-size: 2.2rem; font-weight: 800; color: white; font-family: var(--font-mono); }
+        .hw-card .hw-use { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+        .saas-heading { text-align: center; color: white; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .saas-subheading { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+
+        .pricing-card {
+            background: var(--surface-raised);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.featured { border: 2px solid var(--accent); box-shadow: var(--shadow-glow); }
+
+        .pricing-card.featured .popular-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #1a1a1a;
+            padding: 0.3rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .pricing-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+
+        .pricing-tier { font-size: 1.2rem; color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; }
+        .pricing-price { font-size: 1.6rem; font-weight: 800; color: white; font-family: var(--font-mono); margin-bottom: 0.3rem; }
+        .pricing-period { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 2rem; }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: auto;
+            padding-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.6rem 0;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .pricing-features li::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+        .pricing-features li.highlight-feature { color: var(--accent); font-weight: 600; }
+
+        .pricing-card .btn-primary { width: 100%; justify-content: center; margin-top: auto; }
+
+        .nki-box {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1.5px solid var(--border-accent);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .nki-box h3 { color: var(--accent); font-size: 1.4rem; margin-bottom: 1rem; }
+        .nki-box p { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .nki-box .nki-highlight { color: var(--accent); font-weight: 700; font-size: 1.2rem; margin-top: 1rem; }
+
+        .discount-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+        .discount-item {
+            padding: 1.2rem;
+            background: rgba(245, 158, 11, 0.04);
+            border-radius: var(--radius-sm);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .discount-item:hover { transform: translateY(-2px); }
+        .discount-item.top { border: 1.5px solid var(--accent); background: rgba(245, 158, 11, 0.08); }
+        .discount-value { font-size: 1.6rem; font-weight: 800; color: var(--accent); font-family: var(--font-mono); }
+        .discount-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+        /* PROJECTS */
+        .projects-section {
+            background: var(--surface-raised);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .projects-notice {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             margin-bottom: 3rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .tech-specs {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
+        .projects-notice i { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; }
+        .projects-notice p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; }
 
-        .tech-specs li {
-            padding: 1.3rem 1.5rem;
-            background: var(--bg-elevated);
-            border-radius: var(--radius-md);
-            border-left: 3px solid var(--amber);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: background 0.25s;
-            text-align: left;
-        }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5rem; }
 
-        .tech-specs li:hover { background: rgba(255, 255, 255, 0.05); }
-
-        .tech-specs li i {
-            color: var(--amber);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-            width: 20px;
-            text-align: center;
-        }
-
-        .tech-specs li div { display: flex; flex-direction: column; gap: 0.15rem; }
-        .tech-specs li strong { color: var(--text-primary); font-size: 0.95rem; font-weight: 600; }
-        .tech-specs li span { color: var(--text-muted); font-size: 0.85rem; }
-
-        /* ═══════════════════════════════════════
-           ROI CALCULATOR
-        ═══════════════════════════════════════ */
-        .calculator-section {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-        }
-
-        .calculator-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: 3rem;
-        }
-
-        .calc-inputs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .input-group label {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .input-group input,
-        .input-group select {
-            padding: 0.8rem 1rem;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.25s;
-            -webkit-appearance: none;
-        }
-
-        .input-group input:focus,
-        .input-group select:focus {
-            outline: none;
-            border-color: var(--amber);
-        }
-
-        .input-group select {
-            cursor: pointer;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            padding-right: 2.5rem;
-        }
-
-        .input-group select option {
-            background: var(--bg-card);
-            color: var(--text-primary);
-        }
-
-        /* Recommendation Box */
-        .recommendation-box {
-            background: var(--amber-glow);
-            border: 1.5px solid rgba(245, 158, 11, 0.25);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .recommendation-header {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .recommendation-header i {
-            font-size: 1.5rem;
-            color: var(--amber);
-        }
-
-        .recommendation-header h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--amber);
-        }
-
-        .recommendation-header p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .rec-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .rec-stat-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--amber);
-        }
-
-        .rec-stat-label {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-        }
-
-        .calc-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--amber);
-            color: var(--bg);
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            border: none;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.25s;
-        }
-
-        .calc-btn:hover {
-            background: var(--amber-light);
-            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
-        }
-
-        /* Results */
-        .results-container {
-            display: none;
-            margin-top: 2.5rem;
-            padding: 2.5rem;
-            background: rgba(245, 158, 11, 0.06);
-            border: 1.5px solid rgba(245, 158, 11, 0.2);
-            border-radius: var(--radius-lg);
-            animation: fadeUp 0.5s ease-out;
-        }
-
-        .results-container.show { display: block; }
-
-        .results-title {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-        }
-
-        .savings-breakdown {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .savings-step {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: var(--radius-md);
-        }
-
-        .savings-step.highlight {
-            border: 2px solid var(--amber);
-            background: rgba(245, 158, 11, 0.08);
-        }
-
-        .savings-step-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-        }
-
-        .savings-step-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-
-        .savings-step-value.green { color: var(--green); }
-        .savings-step-value.amber { color: var(--amber); }
-
-        .savings-step-detail {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 0.6rem;
-            font-weight: 500;
-        }
-
-        .lumens-box {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        .lumens-item {
-            padding: 0.6rem;
-            border-radius: var(--radius-sm);
-            text-align: center;
-        }
-
-        .lumens-item.amber-bg {
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .lumens-item.green-bg {
-            background: var(--green-glow);
-            border: 1px solid rgba(52, 211, 153, 0.2);
-        }
-
-        .lumens-item-label { font-size: 0.7rem; font-weight: 600; margin-bottom: 0.2rem; }
-        .lumens-item-value { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; }
-        .lumens-item-value.amber { color: var(--amber); }
-        .lumens-item-value.green { color: var(--green); }
-
-        .results-summary {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .result-item { text-align: center; }
-
-        .result-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--amber);
-            margin-bottom: 0.3rem;
-        }
-
-        .result-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .results-note {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            padding-top: 1rem;
-        }
-
-        .results-note strong { color: var(--amber); }
-
-        /* ═══════════════════════════════════════
-           PRICING
-        ═══════════════════════════════════════ */
-        .pricing-section {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-        }
-
-        .pricing-promo {
-            background: linear-gradient(135deg, var(--amber-dark), var(--amber));
-            padding: 1.8rem 2.5rem;
-            border-radius: var(--radius-lg);
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .pricing-promo h3 {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-        }
-
-        .pricing-promo p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-        }
-
-        /* Hardware Prices */
-        .hw-prices {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            max-width: 900px;
-            margin: 0 auto 4rem;
-        }
-
-        .hw-card {
-            background: var(--bg-card);
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            text-align: center;
-            transition: border-color 0.25s;
-        }
-
-        .hw-card:hover { border-color: var(--border-hover); }
-
-        .hw-card-name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--amber);
-            margin-bottom: 0.4rem;
-        }
-
-        .hw-card-price {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-        }
-
-        .hw-card-use {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        /* SaaS Cards */
-        .saas-label {
-            text-align: center;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .saas-label { font-size: 1.05rem; margin-bottom: 1.2rem; }
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .pricing-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--amber);
-            box-shadow: 0 12px 40px rgba(245, 158, 11, 0.15);
-        }
-
-        .pricing-card.featured .pricing-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--amber);
-            color: var(--bg);
-            padding: 0.3rem 1.2rem;
-            border-radius: 100px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .pricing-tier {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            color: var(--amber);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-
-        .pricing-price {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-        }
-
-        .pricing-period {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 2rem;
-            flex: 1;
-        }
-
-        .pricing-features li {
-            padding: 0.6rem 0;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            font-size: 0.92rem;
-        }
-
-        .pricing-features li::before {
-            content: '✓';
-            color: var(--amber);
-            font-weight: 700;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        .pricing-features li.highlight-feature {
-            color: var(--amber);
-            font-weight: 600;
-        }
-
-        /* NKI & Discount Boxes */
-        .pricing-info-box {
-            background: rgba(245, 158, 11, 0.06);
-            border: 1.5px solid rgba(245, 158, 11, 0.2);
-            border-radius: var(--radius-lg);
-            padding: 2rem 2.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-info-box h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--amber);
-            margin-bottom: 1rem;
-        }
-
-        .pricing-info-box p {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-info-box p strong { color: var(--amber); }
-
-        .discount-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            max-width: 800px;
-            margin: 1.5rem auto 0;
-        }
-
-        .discount-item {
-            background: rgba(245, 158, 11, 0.04);
-            border-radius: var(--radius-md);
-            padding: 1.2rem;
-            text-align: center;
-        }
-
-        .discount-item.best {
-            border: 1.5px solid var(--amber);
-            background: rgba(245, 158, 11, 0.08);
-        }
-
-        .discount-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--amber);
-            margin-bottom: 0.3rem;
-        }
-
-        .discount-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* ═══════════════════════════════════════
-           CASE STUDIES
-        ═══════════════════════════════════════ */
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .case-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+        .project-card {
+            background: var(--surface);
             border-radius: var(--radius-lg);
             overflow: hidden;
+            border: 1px solid var(--border);
             transition: all 0.3s;
             display: flex;
             flex-direction: column;
         }
 
-        .case-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-            border-color: var(--border-hover);
-        }
+        .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--border-accent); }
 
-        .case-card-image {
+        .project-image {
             height: 180px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
+            color: rgba(255,255,255,0.5);
         }
 
-        .case-card-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0.85;
-        }
+        .project-body { padding: 2rem; display: flex; flex-direction: column; flex: 1; }
+        .project-body h3 { font-size: 1.3rem; color: white; margin-bottom: 0.8rem; }
 
-        .case-card:nth-child(1) .case-card-image { background: linear-gradient(135deg, #1e3a5f, #2d5a8f); }
-        .case-card:nth-child(2) .case-card-image { background: linear-gradient(135deg, #1a4a3a, #2d7a5f); }
-        .case-card:nth-child(3) .case-card-image { background: linear-gradient(135deg, #3a2a1e, #6a4a2e); }
+        .project-meta { display: flex; gap: 1.2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .project-meta span { color: var(--text-muted); font-size: 0.82rem; display: flex; align-items: center; gap: 0.4rem; }
+        .project-meta i { color: var(--accent); font-size: 0.85rem; }
+        .project-body > p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.75; margin-bottom: 1.5rem; flex: 1; }
 
-        .case-card-image i { position: relative; z-index: 1; }
+        .project-results { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 
-        .case-planned-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            color: var(--amber);
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 0.3rem 0.7rem;
-            border-radius: 100px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            z-index: 2;
-        }
-
-        .case-card-body {
-            padding: 2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .case-card-body h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-        }
-
-        .case-meta {
-            display: flex;
-            gap: 1.2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .case-meta span {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .case-meta i { color: var(--amber); font-size: 0.85rem; }
-
-        .case-card-body p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            margin-bottom: auto;
-            padding-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .case-results {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
-        }
-
-        .case-result-box {
-            background: rgba(245, 158, 11, 0.06);
+        .project-result {
+            background: rgba(245, 158, 11, 0.08);
+            padding: 1rem 0.8rem;
             border-radius: var(--radius-sm);
-            padding: 1rem;
             text-align: center;
         }
 
-        .case-result-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--amber);
-            margin-bottom: 0.2rem;
-        }
+        .project-result .pr-value { font-size: 1.5rem; font-weight: 800; color: var(--accent); font-family: var(--font-mono); }
+        .project-result .pr-label { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.2rem; }
 
-        .case-result-label {
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        /* ═══════════════════════════════════════
-           IMPACT
-        ═══════════════════════════════════════ */
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
+        /* IMPACT */
+        .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 
         .impact-card {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+            background: var(--surface-raised);
             padding: 2.5rem 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
             text-align: center;
             transition: all 0.3s;
         }
 
-        .impact-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.04);
-        }
+        .impact-card:hover { transform: translateY(-6px); border-color: var(--border-accent); }
+        .impact-card i { font-size: 2rem; color: var(--accent); margin-bottom: 1.2rem; display: block; }
+        .impact-card .impact-value { font-size: 2rem; font-weight: 800; color: var(--accent); font-family: var(--font-mono); margin-bottom: 0.5rem; }
+        .impact-card .impact-label { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
 
-        .impact-icon {
-            font-size: 2rem;
-            color: var(--amber);
-            margin-bottom: 1rem;
-        }
+        /* CTA */
+        .cta-section { padding: 6rem 0; }
 
-        .impact-value {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--amber);
-            margin-bottom: 0.4rem;
-        }
-
-        .impact-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* ═══════════════════════════════════════
-           CTA
-        ═══════════════════════════════════════ */
-        .cta-section {
-            max-width: 900px;
+        .cta-card {
+            max-width: 860px;
             margin: 0 auto;
-            padding: 6rem 2rem;
-        }
-
-        .cta-box {
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.15), rgba(245, 158, 11, 0.08));
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            border-radius: var(--radius-xl);
             padding: 4rem 3rem;
             text-align: center;
+            background: linear-gradient(135deg, rgba(26, 47, 74, 0.3), rgba(245, 158, 11, 0.08));
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-accent);
             position: relative;
             overflow: hidden;
         }
 
-        .cta-box::before {
+        .cta-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.06), transparent 60%);
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.06), transparent 70%);
             animation: ctaRotate 25s linear infinite;
+            pointer-events: none;
         }
 
-        @keyframes ctaRotate {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes ctaRotate { from { transform: rotate(0); } to { transform: rotate(360deg); } }
 
-        .cta-inner { position: relative; z-index: 1; }
+        .cta-card > * { position: relative; z-index: 1; }
+        .cta-card h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: white; margin-bottom: 1rem; }
+        .cta-card > p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; line-height: 1.8; }
 
-        .cta-box h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
 
-        .cta-box p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .cta-contact { padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.92rem; }
+        .cta-contact a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .cta-contact a:hover { color: var(--accent); }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-contact {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
+        /* FOOTER */
+        .footer {
+            background: var(--surface-raised);
+            padding: 4rem 0 2rem;
             border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.92rem;
         }
 
-        .cta-contact a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.2rem; max-width: 280px; line-height: 1.7; }
 
-        .cta-contact a:hover { color: var(--amber); }
-
-        /* ═══════════════════════════════════════
-           FOOTER
-        ═══════════════════════════════════════ */
-        footer {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border);
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h4 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-section p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section a {
-            display: block;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.3rem 0;
-            transition: color 0.2s;
-        }
-
-        .footer-section a:hover { color: var(--amber); }
-
-        .social-links {
-            display: flex;
-            gap: 0.8rem;
-        }
+        .social-links { display: flex; gap: 0.8rem; }
 
         .social-links a {
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.05);
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.05);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--amber);
-            font-size: 1rem;
-            transition: all 0.25s;
-        }
-
-        .social-links a:hover {
-            background: var(--amber);
-            color: var(--bg);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .footer-bottom a {
-            color: var(--text-muted);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted); font-size: 1rem;
+            transition: all 0.2s;
             text-decoration: none;
-            margin: 0 0.75rem;
-            transition: color 0.2s;
         }
 
-        .footer-bottom a:hover { color: var(--amber); }
+        .social-links a:hover { background: var(--accent); color: #1a1a1a; transform: translateY(-2px); }
 
-        /* Scroll to Top */
+        .footer-col h4 { color: white; font-size: 0.95rem; margin-bottom: 1.2rem; font-weight: 700; }
+        .footer-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 0.88rem; margin-bottom: 0.6rem; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--accent); }
+
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.82rem; }
+        .footer-bottom a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-bottom a:hover { color: var(--accent); }
+        .footer-legal { margin-top: 0.5rem; display: flex; gap: 1.5rem; justify-content: center; }
+
+        /* SCROLL TOP */
         .scroll-top {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 44px;
-            height: 44px;
-            background: var(--amber);
+            position: fixed; bottom: 24px; right: 24px;
+            width: 44px; height: 44px;
+            background: var(--accent);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg);
-            font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            color: #1a1a1a; font-size: 1.1rem;
             cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
+            opacity: 0; visibility: hidden;
             transition: all 0.3s;
             z-index: 900;
-            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
             border: none;
         }
 
         .scroll-top.show { opacity: 1; visibility: visible; }
-        .scroll-top:hover { transform: translateY(-3px); }
+        .scroll-top:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow); }
 
-        /* ═══════════════════════════════════════
-           SCROLL REVEAL
-        ═══════════════════════════════════════ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ═══════════════════════════════════════
-           RESPONSIVE
-        ═══════════════════════════════════════ */
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-card:last-child { grid-column: 1 / -1; max-width: 400px; margin: 0 auto; }
-            .cases-grid { grid-template-columns: 1fr 1fr; }
-            .cases-grid .case-card:last-child { grid-column: 1 / -1; max-width: 500px; margin: 0 auto; }
+            .tech-layout { grid-template-columns: 1fr; }
+            .tech-visual { height: 400px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hardware-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
             .impact-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-inner { grid-template-columns: 1fr 1fr; }
-            .hw-prices { grid-template-columns: repeat(2, 1fr); }
             .discount-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .nav-inner .btn-primary.desktop-only { display: none; }
-            .hamburger { display: flex; }
-
-            .hero { min-height: auto; padding: 3.5rem 1.5rem 3rem; }
-            .hero-badge { font-size: 0.8rem; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
-            .hero-tagline { font-size: 1.05rem; }
-            .hero-sub { font-size: 0.92rem; margin-bottom: 2rem; }
-            .hero-trust { gap: 1rem; }
-
-            .stats-bar { padding: 2.5rem 1.5rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-            .stat-value { font-size: 2.2rem; }
-
-            .section { padding: 3.5rem 1.5rem; }
-            .section-header { margin-bottom: 2.5rem; }
-            .section-title { margin-bottom: 0.5rem; }
-            .section-desc { font-size: 1rem; }
-            .features-grid { grid-template-columns: 1fr; }
-            .feature-card { padding: 1.8rem 1.5rem; }
-            .feature-card h3 { font-size: 1.1rem; }
-
-            /* ── Tech Visual: mobile-optimized ── */
-            .tech-section { padding: 3.5rem 1.5rem; }
-            .tech-visual {
-                height: 300px;
-                margin-bottom: 0;
-                background: radial-gradient(ellipse at 50% 85%, rgba(245, 158, 11, 0.08), transparent 55%);
-            }
-            .tech-diagram { height: 280px; }
-            .single-lamp.left, .single-lamp.right { display: none; }
-            .wave-connection { display: none; }
-            .wave-label { font-size: 0.78rem; padding: 0.35rem 0.9rem; top: 5px; }
-            .info-points { display: none; }
-            .single-lamp.center {
-                transform: translate(-50%, -50%) scale(0.85);
-            }
-            .radar-cone {
-                border-left-width: 70px;
-                border-right-width: 70px;
-                border-top-width: 140px;
-                top: 95px;
-            }
-            /* Show mobile tech cards */
-            .tech-features-mobile { display: grid; }
-
-            .tech-content h2 { font-size: 1.5rem; }
-            .tech-content > p { font-size: 0.95rem; margin-bottom: 2rem; }
-            .tech-specs { grid-template-columns: 1fr; gap: 0.75rem; }
-            .tech-specs li { padding: 1rem 1.2rem; }
-            .tech-specs li strong { font-size: 0.9rem; }
-
-            /* ── Calculator ── */
-            .calculator-section { padding: 3.5rem 1.5rem; }
-            .calculator-box { padding: 1.8rem 1.2rem; }
-            .calc-inputs { grid-template-columns: 1fr; gap: 1rem; }
-            .input-group label { font-size: 0.82rem; }
-            .input-group input, .input-group select { padding: 0.7rem 0.85rem; font-size: 0.9rem; }
-            .rec-stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
-            .rec-stat-value { font-size: 1.3rem; }
-            .rec-stat-label { font-size: 0.72rem; }
-            .recommendation-box { padding: 1.2rem; }
-            .recommendation-header h3 { font-size: 1rem; }
-            .savings-breakdown { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-            .savings-step { padding: 1.2rem 0.8rem; }
-            .savings-step-value { font-size: 2rem; }
-            .savings-step-label { font-size: 0.75rem; }
-            .results-summary { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-            .result-value { font-size: 1.6rem; }
-            .result-label { font-size: 0.8rem; }
-            .results-container { padding: 1.8rem 1.2rem; }
-            .results-note { font-size: 0.82rem; }
-
-            /* ── Pricing ── */
-            .pricing-section { padding: 3.5rem 1.5rem; }
-            .pricing-promo { padding: 1.5rem; }
-            .pricing-promo h3 { font-size: 1.2rem; }
-            .pricing-promo p { font-size: 0.9rem; }
-            .pricing-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .pricing-card { padding: 2rem 1.5rem; }
-            .pricing-card:last-child { max-width: none; }
-            .pricing-card.featured { transform: none; }
-            .pricing-price { font-size: 1.5rem; }
-            .pricing-features li { font-size: 0.88rem; padding: 0.45rem 0; }
-            .hw-prices { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-            .hw-card { padding: 1.2rem; }
-            .hw-card-price { font-size: 1.8rem; }
-            .hw-card-name { font-size: 0.9rem; }
-            .pricing-info-box { padding: 1.5rem; }
-            .pricing-info-box h3 { font-size: 1.1rem; }
-            .pricing-info-box p { font-size: 0.9rem; }
-
-            /* ── Cases & Impact ── */
-            .cases-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .cases-grid .case-card:last-child { max-width: none; }
-            .case-card-image { height: 140px; font-size: 2rem; }
-            .case-card-body { padding: 1.5rem; }
-            .case-card-body h3 { font-size: 1.1rem; }
-            .case-result-value { font-size: 1.3rem; }
-            .impact-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-            .impact-card { padding: 1.8rem 1rem; }
-            .impact-value { font-size: 1.8rem; }
-            .impact-label { font-size: 0.82rem; }
-
-            /* ── CTA & Footer ── */
-            .cta-section { padding: 3.5rem 1.5rem; }
-            .cta-box { padding: 2.5rem 1.5rem; }
-            .cta-box h2 { font-size: 1.6rem; }
-            .cta-box p { font-size: 0.95rem; }
-            .cta-contact { font-size: 0.82rem; }
-            .footer-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+            .nav-toggle { display: flex; }
+            .nav .btn-primary { display: none; }
+            .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+            .features-grid, .projects-grid { grid-template-columns: 1fr; }
+            .savings-breakdown { grid-template-columns: 1fr; }
+            .recommendation-stats { grid-template-columns: 1fr; gap: 0.5rem; }
+            .lamp.left, .lamp.right { display: none; }
+            .tech-visual { height: 350px; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .social-links { justify-content: center; }
-            .footer-section h4 { margin-bottom: 0.8rem; }
+            .footer-brand p { max-width: 100%; }
+            section { padding: 4rem 0; }
+            .calculator-card { padding: 2rem 1.5rem; }
+            .results-panel { padding: 1.5rem; }
+            .cta-card { padding: 3rem 1.5rem; }
         }
 
         @media (max-width: 480px) {
-            .hero { padding: 2.5rem 1.2rem 2rem; }
-            .hero h1 { letter-spacing: -0.02em; }
+            .stats-grid, .hardware-grid, .impact-grid { grid-template-columns: 1fr; }
+            .discount-grid { grid-template-columns: 1fr 1fr; }
+            .hero-badges { flex-direction: column; gap: 0.8rem; }
             .hero-actions { flex-direction: column; }
-            .hero-actions a { width: 100%; justify-content: center; }
-            .hero-trust { flex-direction: column; align-items: center; gap: 0.6rem; }
-
-            .stats-bar { padding: 2rem 1.2rem; }
-            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-            .stat-value { font-size: 1.8rem; }
-            .stat-label { font-size: 0.8rem; }
-
-            .section { padding: 3rem 1.2rem; }
-            .feature-card { padding: 1.5rem 1.2rem; }
-            .feature-icon { width: 44px; height: 44px; font-size: 1.1rem; border-radius: 12px; margin-bottom: 1rem; }
-
-            .tech-section { padding: 3rem 1.2rem; }
-            .tech-visual { height: 250px; }
-            .tech-diagram { height: 230px; }
-            .single-lamp.center { transform: translate(-50%, -50%) scale(0.7); }
-            .radar-cone {
-                border-left-width: 55px;
-                border-right-width: 55px;
-                border-top-width: 110px;
-                top: 80px;
-            }
-            .wave-label { font-size: 0.72rem; padding: 0.3rem 0.75rem; }
-            .tech-features-mobile { grid-template-columns: 1fr; }
-            .tech-feat-card { padding: 1rem; }
-            .tech-content h2 { font-size: 1.3rem; }
-
-            .calculator-section { padding: 3rem 1.2rem; }
-            .calculator-box { padding: 1.5rem 1rem; }
-            .savings-breakdown { grid-template-columns: 1fr; }
-            .savings-step-value { font-size: 2.2rem; }
-            .results-summary { grid-template-columns: 1fr 1fr; }
-
-            .pricing-section { padding: 3rem 1.2rem; }
-            .hw-prices { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-            .hw-card { padding: 1rem; }
-            .hw-card-price { font-size: 1.5rem; }
-            .discount-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-            .discount-value { font-size: 1.3rem; }
-
-            .impact-grid { grid-template-columns: 1fr; }
-
-            .cta-section { padding: 3rem 1.2rem; }
-            .cta-box { padding: 2rem 1.2rem; }
-            .cta-buttons { flex-direction: column; }
-            .cta-buttons a { width: 100%; justify-content: center; }
-
-            .footer-bottom { font-size: 0.8rem; }
+            .hero-actions a, .hero-actions button { width: 100%; justify-content: center; text-align: center; }
+            .container { padding: 0 1.2rem; }
+            .results-numbers { grid-template-columns: 1fr 1fr; }
+            .footer-legal { flex-direction: column; gap: 0.5rem; }
         }
 
-        @media (max-width: 360px) {
-            .hero h1 { font-size: 2rem; }
-            .hero-badge { font-size: 0.72rem; }
-            .stat-value { font-size: 1.6rem; }
-            .tech-visual { height: 220px; }
-            .tech-diagram { height: 200px; }
-            .single-lamp.center { transform: translate(-50%, -50%) scale(0.6); }
-            .rec-stats { grid-template-columns: 1fr; gap: 0.5rem; }
-            .hw-prices { grid-template-columns: 1fr; }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
+
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
-
-    <!-- Announcement Bar -->
-    <div class="announcement-bar">
-        <span>KlugLux UG befindet sich in Gründung — Alle Angaben vorläufig — Geplanter Launch: Q2 2026</span>
+    <div class="disclaimer-banner" role="banner">
+        <span><i class="fas fa-rocket"></i> KlugLux befindet sich in Gründung – Alle Angaben vorläufig – Geplanter Launch: Q2 2026</span>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="nav" id="navbar" role="navigation" aria-label="Hauptnavigation">
         <div class="nav-inner">
-            <a href="#" class="logo">
-                <img src="KlugLux.jpg" alt="KlugLux Logo">
+            <a href="#" class="nav-logo" aria-label="KlugLux Startseite">
+                <img src="KlugLux.jpg" alt="KlugLux Logo" width="160" height="48">
             </a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
@@ -2045,898 +1125,393 @@
                 <li><a href="#preise">Preise</a></li>
                 <li><a href="#projekte">Projekte</a></li>
             </ul>
-            <a href="#kontakt" class="btn-primary desktop-only">Kontakt aufnehmen</a>
-            <div class="hamburger" id="hamburger" aria-label="Menü öffnen" role="button" tabindex="0">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <a href="#kontakt" class="btn-primary">Kontakt aufnehmen</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <a href="#features">Features</a>
-        <a href="#technologie">Technologie</a>
-        <a href="#rechner">ROI-Rechner</a>
-        <a href="#preise">Preise</a>
-        <a href="#projekte">Projekte</a>
-        <a href="#kontakt" class="btn-primary" style="margin-top: 1rem;">Kontakt aufnehmen</a>
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
+        <a href="#features" class="mobile-link">Features</a>
+        <a href="#technologie" class="mobile-link">Technologie</a>
+        <a href="#rechner" class="mobile-link">ROI-Rechner</a>
+        <a href="#preise" class="mobile-link">Preise</a>
+        <a href="#projekte" class="mobile-link">Projekte</a>
+        <a href="#kontakt" class="btn-primary" style="margin-top:1rem;">Kontakt aufnehmen</a>
     </div>
 
-    <!-- Hero -->
     <section class="hero">
-        <div class="hero-glow"></div>
-        <div class="hero-grid-bg"></div>
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-bolt"></i>
-                Bis zu 88 % Energieeinsparung
-            </div>
-            <h1>Die Zukunft der<br>Straße ist <span class="accent">klug</span></h1>
-            <p class="hero-tagline">Intelligente Straßenbeleuchtung mit mmWave-Radar.</p>
-            <p class="hero-sub">Aurora · Lumen · Nova · Phoenix — vier Leuchten, eine Mission: hell, effizient, sicher.</p>
-            <div class="hero-actions">
-                <a href="#rechner" class="btn-primary"><i class="fas fa-calculator"></i> ROI berechnen</a>
-                <a href="#features" class="btn-outline"><i class="fas fa-arrow-down"></i> Mehr erfahren</a>
-            </div>
-            <div class="hero-trust">
-                <div class="trust-item"><i class="fas fa-check-circle"></i> NKI-förderfähig</div>
-                <div class="trust-item"><i class="fas fa-shield-alt"></i> DSGVO-konform</div>
-                <div class="trust-item"><i class="fas fa-leaf"></i> Carbon-Negative</div>
+        <div class="hero-bg"></div>
+        <div class="hero-grid-pattern"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">Intelligente Straßenbeleuchtung</div>
+                <h1>Die Zukunft der Straße:<br><span class="accent-text">Hell. Klug. Sicher.</span></h1>
+                <p class="hero-subtitle">KlugLux kombiniert mmWave-Radar mit adaptiver LED-Steuerung für bis zu 88 % Energieeinsparung – DSGVO-konform und NKI-förderfähig.</p>
+                <div class="hero-actions">
+                    <a href="#rechner" class="btn-primary"><i class="fas fa-calculator"></i> ROI berechnen</a>
+                    <a href="#features" class="btn-secondary"><i class="fas fa-arrow-down"></i> Mehr erfahren</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="badge"><i class="fas fa-check-circle"></i> NKI-förderfähig</div>
+                    <div class="badge"><i class="fas fa-shield-alt"></i> DSGVO-konform</div>
+                    <div class="badge"><i class="fas fa-leaf"></i> Carbon-Negative</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stats-grid">
-            <div class="stat-item reveal">
-                <div class="stat-value">70 %</div>
-                <div class="stat-label">Energieeinsparung</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-value">€147</div>
-                <div class="stat-label">Ersparnis pro Lampe / Jahr</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-value">40 %</div>
-                <div class="stat-label">NKI-Förderung</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-value">95 %</div>
-                <div class="stat-label">Erkennungsgenauigkeit</div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item animate-on-scroll"><div class="stat-value">70%</div><div class="stat-label">Energieeinsparung</div></div>
+                <div class="stat-item animate-on-scroll"><div class="stat-value">€258</div><div class="stat-label">Ersparnis / Lampe / Jahr</div></div>
+                <div class="stat-item animate-on-scroll"><div class="stat-value">40%</div><div class="stat-label">NKI-Förderung</div></div>
+                <div class="stat-item animate-on-scroll"><div class="stat-value">95%</div><div class="stat-label">Erkennungsgenauigkeit</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="section" id="features">
-        <div class="section-header">
-            <div class="section-label">Features</div>
-            <h2 class="section-title">Intelligente Technologie<br>für nachhaltige Kommunen</h2>
-            <p class="section-desc">Sechs Kernfunktionen, die KlugLux zur smartesten Straßenbeleuchtung Deutschlands machen.</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-broadcast-tower"></i></div>
-                <h3>24 GHz mmWave-Radar</h3>
-                <p>DSGVO-konforme Bewegungserkennung ohne Kameras. Erkennt Fußgänger, Radfahrer und Fahrzeuge mit 95 % Genauigkeit — bei jedem Wetter.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                <h3>Predictive Wave Lighting</h3>
-                <p>Unser Mesh-Netzwerk aktiviert Nachbarlampen proaktiv, bevor ein Verkehrsteilnehmer sie erreicht. Nahtlose Beleuchtung entlang der gesamten Route.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-moon"></i></div>
-                <h3>Wildlife-freundlich</h3>
-                <p>Adaptive Dimmung schützt nachtaktive Tiere und Insekten. Dark-Sky-Friendly-zertifizierbar für minimale Lichtverschmutzung.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-bell"></i></div>
-                <h3>Kollisionsdetektion</h3>
-                <p>Integrierter 3-Achsen-Sensor erkennt Unfälle automatisch und sendet sofortige Benachrichtigungen für schnelle Notfallreaktion.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-cloud"></i></div>
-                <h3>Cloud-Dashboard</h3>
-                <p>Echtzeit-Monitoring, Verkehrsanalysen und Predictive Maintenance über ein intuitives SaaS-Dashboard mit API-Zugang.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fas fa-seedling"></i></div>
-                <h3>Carbon-Negative</h3>
-                <p>Drei Mangroven pro verkaufter Leuchte durch unsere Eden-Project-Partnerschaft. Wir gehen bewusst über CO₂-Neutralität hinaus.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology -->
-    <section class="section-dark tech-section" id="technologie">
-        <div class="tech-inner">
+    <section id="features">
+        <div class="container">
             <div class="section-header">
-                <div class="section-label">Technologie</div>
-                <h2 class="section-title">So funktioniert KlugLux</h2>
+                <span class="section-label">Was KlugLux kann</span>
+                <h2 class="section-heading">Intelligente Features</h2>
+                <p class="section-desc">Modernste Sensorik und KI-Algorithmen für nachhaltige, sichere Beleuchtung.</p>
             </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-broadcast-tower"></i></div><h3>24 GHz mmWave Radar</h3><p>DSGVO-konforme Bewegungserkennung ohne Kameras. Erfasst Fußgänger, Radfahrer und Fahrzeuge mit 95 % Genauigkeit – bei jedem Wetter.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-bolt"></i></div><h3>Predictive Wave Lighting</h3><p>Intelligentes Mesh-Netzwerk aktiviert Nachbarlampen proaktiv – nahtlose Beleuchtung entlang der gesamten Route, bevor man ankommt.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-moon"></i></div><h3>Wildlife-freundlich</h3><p>Adaptive Dimmung schützt nachtaktive Tiere und Insekten. Dark-Sky-Friendly-zertifizierbar für minimale Lichtverschmutzung.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-bell"></i></div><h3>Kollisionsdetektion</h3><p>Integrierter 3-Achsen-Sensor erkennt Unfälle automatisch und sendet sofortige Benachrichtigungen für schnelle Notfallreaktion.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-cloud"></i></div><h3>Cloud Dashboard</h3><p>Echtzeit-Monitoring, Verkehrsanalysen und Predictive Maintenance über ein intuitives SaaS-Dashboard mit API-Zugang.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon"><i class="fas fa-leaf"></i></div><h3>Carbon-Negative</h3><p>3 Mangroven pro verkaufter Lampe – wir gehen über CO₂-Neutralität hinaus und gleichen mehr aus, als wir verursachen.</p></div>
+            </div>
+        </div>
+    </section>
 
-            <div class="tech-visual">
-                <div class="tech-diagram">
-                    <div class="wave-label"><i class="fas fa-network-wired"></i> Predictive Wave Lighting</div>
-                    <div class="wave-connection left-to-center"></div>
-                    <div class="wave-connection center-to-right"></div>
-
-                    <div class="lamp-group">
-                        <div class="single-lamp left dimmed">
-                            <div class="lamp-post"></div>
-                            <div class="street-lamp-head">
-                                <div class="lamp-mount"></div>
-                                <div class="lamp-housing"></div>
-                                <div class="lamp-light"></div>
-                                <div class="lamp-sensor"></div>
-                            </div>
-                        </div>
-
-                        <div class="single-lamp center active">
-                            <div class="radar-cone"></div>
-                            <div class="lamp-post"></div>
-                            <div class="street-lamp-head">
-                                <div class="lamp-mount"></div>
-                                <div class="lamp-housing"></div>
-                                <div class="lamp-light"></div>
-                                <div class="lamp-sensor"></div>
-                            </div>
-                        </div>
-
-                        <div class="single-lamp right dimmed">
-                            <div class="lamp-post"></div>
-                            <div class="street-lamp-head">
-                                <div class="lamp-mount"></div>
-                                <div class="lamp-housing"></div>
-                                <div class="lamp-light"></div>
-                                <div class="lamp-sensor"></div>
-                            </div>
-                        </div>
+    <section class="tech-section" id="technologie">
+        <div class="container">
+            <div class="tech-layout">
+                <div class="tech-visual">
+                    <div class="tech-diagram">
+                        <div class="wave-badge"><i class="fas fa-network-wired"></i> Predictive Wave Lighting</div>
+                        <div class="wave-line left"></div>
+                        <div class="wave-line right"></div>
+                        <div class="lamp left dimmed"><div class="lamp-pole"></div><div class="lamp-head"><div class="lamp-housing"></div><div class="lamp-glow"></div><div class="lamp-sensor"></div></div></div>
+                        <div class="lamp center"><div class="radar-cone"></div><div class="lamp-pole"></div><div class="lamp-head"><div class="lamp-housing"></div><div class="lamp-glow"></div><div class="lamp-sensor"></div></div></div>
+                        <div class="lamp right dimmed"><div class="lamp-pole"></div><div class="lamp-head"><div class="lamp-housing"></div><div class="lamp-glow"></div><div class="lamp-sensor"></div></div></div>
                     </div>
-
-                    <div class="info-points">
-                        <div class="info-point">
-                            <i class="fas fa-wifi"></i>
-                            <div class="info-tooltip">
-                                <h4>LTE-Konnektivität</h4>
-                                <p>Mobilfunk mit eSIM und Multi-Provider-Failover für zuverlässige Echtzeit-Updates.</p>
-                            </div>
-                        </div>
-                        <div class="info-point">
-                            <i class="fas fa-brain"></i>
-                            <div class="info-tooltip">
-                                <h4>KI-Algorithmen</h4>
-                                <p>6-Layer-Filtering reduziert Fehlauslösungen um 95 %. Aktiviert Nachbarlampen proaktiv.</p>
-                            </div>
-                        </div>
-                        <div class="info-point">
-                            <i class="fas fa-bolt"></i>
-                            <div class="info-tooltip">
-                                <h4>70 % Energie sparen</h4>
-                                <p>Adaptive Steuerung nach Bewegung, Wetter und Mondphase spart bis zu €147 pro Lampe und Jahr.</p>
-                            </div>
-                        </div>
-                        <div class="info-point">
-                            <i class="fas fa-shield-alt"></i>
-                            <div class="info-tooltip">
-                                <h4>Kollisionsdetektion</h4>
-                                <p>3-Achsen-Sensor erkennt Unfälle und sendet sofortige Benachrichtigungen an die Leitstelle.</p>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Unter der Haube</span>
+                    <h2 class="section-heading">KlugLux Produktfamilie</h2>
+                    <p class="section-desc" style="margin-bottom:2rem;">Unsere patentierte Technologie kombiniert hochpräzise mmWave-Radar-Sensoren mit KI-Algorithmen für optimale Energieeffizienz und Sicherheit.</p>
+                    <ul class="tech-specs-list">
+                        <li><i class="fas fa-broadcast-tower"></i><div><strong>24 GHz mmWave Radar</strong><span>DSGVO-konform, wetterfest</span></div></li>
+                        <li><i class="fas fa-filter"></i><div><strong>6-Layer False Detection Filtering</strong><span>95 % weniger Fehlauslösungen</span></div></li>
+                        <li><i class="fas fa-tachometer-alt"></i><div><strong>Geschwindigkeitsbasierte Objekterkennung</strong><span>0,3–15 m/s Erfassungsbereich</span></div></li>
+                        <li><i class="fas fa-lightbulb"></i><div><strong>LED-Modul 20–100 W dimmbar</strong><span>Maximal energieeffizient</span></div></li>
+                        <li><i class="fas fa-cloud-sun-rain"></i><div><strong>Wetteradaptive Helligkeit</strong><span>via OpenMeteo Integration</span></div></li>
+                        <li><i class="fas fa-signal"></i><div><strong>LTE Cat-M1 / NB-IoT</strong><span>Multi-Provider Failover</span></div></li>
+                        <li><i class="fas fa-sync-alt"></i><div><strong>Over-The-Air (OTA) Updates</strong><span>Firmware jederzeit aktualisierbar</span></div></li>
+                        <li><i class="fas fa-clock"></i><div><strong>50.000 h LED-Lebensdauer</strong><span>Citizen CLU048 High-CRI Module</span></div></li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Mobile Tech Feature Cards (replaces hover info-points) -->
-            <div class="tech-features-mobile">
-                <div class="tech-feat-card">
-                    <div class="tech-feat-icon"><i class="fas fa-wifi"></i></div>
-                    <div>
-                        <h4>LTE-Konnektivität</h4>
-                        <p>eSIM mit Multi-Provider-Failover für zuverlässige Echtzeit-Updates.</p>
-                    </div>
-                </div>
-                <div class="tech-feat-card">
-                    <div class="tech-feat-icon"><i class="fas fa-brain"></i></div>
-                    <div>
-                        <h4>KI-Algorithmen</h4>
-                        <p>6-Layer-Filtering reduziert Fehlauslösungen um 95 %.</p>
-                    </div>
-                </div>
-                <div class="tech-feat-card">
-                    <div class="tech-feat-icon"><i class="fas fa-bolt"></i></div>
-                    <div>
-                        <h4>70 % Energie sparen</h4>
-                        <p>Adaptive Steuerung nach Bewegung, Wetter & Mondphase.</p>
-                    </div>
-                </div>
-                <div class="tech-feat-card">
-                    <div class="tech-feat-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div>
-                        <h4>Kollisionsdetektion</h4>
-                        <p>3-Achsen-Sensor erkennt Unfälle und meldet sofort.</p>
-                    </div>
-                </div>
+    <section id="rechner">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Ihre Einsparung</span>
+                <h2 class="section-heading">ROI-Rechner</h2>
+                <p class="section-desc">Berechnen Sie, wie viel Ihre Kommune mit KlugLux spart.</p>
             </div>
+            <div class="calculator-card">
+                <div class="calc-inputs">
+                    <div class="input-group"><label for="lampCount">Anzahl Lampen</label><input type="number" id="lampCount" value="100" min="1" max="10000"></div>
+                    <div class="input-group"><label for="streetType">Straßentyp</label><select id="streetType"><option value="residential">Wohnstraße / Fußweg</option><option value="main" selected>Hauptstraße / Stadtverkehr</option><option value="highway">Bundesstraße / Landstraße</option><option value="autobahn">Autobahn / Schnellstraße</option></select></div>
+                    <div class="input-group"><label for="currentPower">Aktuelle Lampenleistung (W)</label><input type="number" id="currentPower" value="150" min="30" max="300"></div>
+                    <div class="input-group"><label for="energyCost">Strompreis (€/kWh)</label><input type="number" id="energyCost" value="0.35" min="0.1" max="1" step="0.01"></div>
+                    <div class="input-group"><label for="saasplan">SaaS-Plan (ab Jahr 3)</label><select id="saasplan"><option value="0.99">Basic</option><option value="2.99" selected>Professional</option><option value="4.99">Enterprise</option></select></div>
+                </div>
 
-            <div class="tech-content">
-                <h2>Die KlugLux-Produktfamilie</h2>
-                <p>Unsere Technologie kombiniert hochpräzise mmWave-Radar-Sensoren mit KI-basierten Algorithmen für optimale Energieeffizienz und maximale Sicherheit.</p>
-
-                <ul class="tech-specs">
-                    <li>
-                        <i class="fas fa-broadcast-tower"></i>
-                        <div><strong>24 GHz mmWave-Radar</strong><span>DSGVO-konform, wetterfest</span></div>
-                    </li>
-                    <li>
-                        <i class="fas fa-filter"></i>
-                        <div><strong>6-Layer False-Detection-Filtering</strong><span>95 % weniger Fehlauslösungen</span></div>
-                    </li>
-                    <li>
-                        <i class="fas fa-tachometer-alt"></i>
-                        <div><strong>Geschwindigkeitsbasierte Objekterkennung</strong><span>0,3–15 m/s Erfassungsbereich</span></div>
-                    </li>
-                    <li>
+                <div class="recommendation-box" id="phoenixRecommendation">
+                    <div class="recommendation-header">
                         <i class="fas fa-lightbulb"></i>
-                        <div><strong>LED-Modul 20–80 W dimmbar</strong><span>Maximal energieeffizient</span></div>
-                    </li>
-                    <li>
-                        <i class="fas fa-cloud-sun-rain"></i>
-                        <div><strong>Wetteradaptive Helligkeit</strong><span>via OpenMeteo-Integration</span></div>
-                    </li>
-                    <li>
-                        <i class="fas fa-signal"></i>
-                        <div><strong>LTE Cat-M1 / NB-IoT</strong><span>Multi-Provider-Failover</span></div>
-                    </li>
-                    <li>
-                        <i class="fas fa-sync-alt"></i>
-                        <div><strong>Over-The-Air (OTA) Updates</strong><span>Firmware remote aktualisieren</span></div>
-                    </li>
-                    <li>
-                        <i class="fas fa-clock"></i>
-                        <div><strong>50.000 h LED-Lebensdauer</strong><span>Citizen CLU048 Module</span></div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROI Calculator -->
-    <section class="calculator-section" id="rechner">
-        <div class="section-header">
-            <div class="section-label">Rechner</div>
-            <h2 class="section-title">Berechnen Sie Ihre Einsparungen</h2>
-            <p class="section-desc">Wählen Sie Ihre Parameter und sehen Sie sofort, wie KlugLux Ihren Energieverbrauch senkt.</p>
-        </div>
-
-        <div class="calculator-box">
-            <div class="calc-inputs">
-                <div class="input-group">
-                    <label for="lampCount">Anzahl Lampen</label>
-                    <input type="number" id="lampCount" value="100" min="1" max="10000">
-                </div>
-                <div class="input-group">
-                    <label for="streetType">Straßentyp</label>
-                    <select id="streetType" onchange="updatePhoenixRecommendation()">
-                        <option value="residential">Wohnstraße / Fußweg</option>
-                        <option value="main" selected>Hauptstraße / Stadtverkehr</option>
-                        <option value="highway">Bundesstraße / Landstraße</option>
-                        <option value="autobahn">Autobahn / Schnellstraße</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="currentPower">Aktuelle Lampenleistung (W)</label>
-                    <input type="number" id="currentPower" value="150" min="30" max="300">
-                </div>
-                <div class="input-group">
-                    <label for="energyCost">Strompreis (€/kWh)</label>
-                    <input type="number" id="energyCost" value="0.20" min="0.05" max="1" step="0.01">
-                </div>
-                <div class="input-group">
-                    <label for="saasplan">SaaS-Plan</label>
-                    <select id="saasplan">
-                        <option value="0.99">Basic</option>
-                        <option value="2.99" selected>Professional</option>
-                        <option value="4.99">Enterprise</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Recommendation -->
-            <div class="recommendation-box" id="phoenixRecommendation">
-                <div class="recommendation-header">
-                    <i class="fas fa-lightbulb"></i>
-                    <div>
-                        <h3 id="recommendationTitle">Empfohlene Variante: Lumen</h3>
-                        <p id="recommendationText"></p>
+                        <div><h3 id="recommendationTitle">Empfohlene Variante: Lumen</h3><p id="recommendationText"></p></div>
                     </div>
-                </div>
-                <div class="rec-stats">
-                    <div>
-                        <div class="rec-stat-value" id="phoenixMax">60W</div>
-                        <div class="rec-stat-label">Maximum</div>
-                    </div>
-                    <div>
-                        <div class="rec-stat-value" id="phoenixAvg">18W</div>
-                        <div class="rec-stat-label">Durchschnitt (adaptiv)</div>
-                    </div>
-                    <div>
-                        <div class="rec-stat-value" id="phoenixLumens">7.800</div>
-                        <div class="rec-stat-label">Lumen bei 100 %</div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="calc-btn" onclick="calculateROI()">
-                <i class="fas fa-calculator"></i> Einsparungen berechnen
-            </button>
-
-            <!-- Results -->
-            <div class="results-container" id="results">
-                <h3 class="results-title"><i class="fas fa-chart-line"></i> Ihre Einsparungen</h3>
-
-                <div class="savings-breakdown">
-                    <div class="savings-step">
-                        <div class="savings-step-label" style="color: var(--text-secondary);">Schritt 1: LED-Upgrade</div>
-                        <div class="savings-step-value green" id="ledSavings">60%</div>
-                        <div class="savings-step-detail" id="ledSavingsText">150W → 60W</div>
-                    </div>
-                    <div class="savings-step">
-                        <div class="savings-step-label" style="color: var(--text-secondary);">Schritt 2: Adaptive Steuerung</div>
-                        <div class="savings-step-value green" id="adaptiveSavings">70%</div>
-                        <div class="savings-step-detail" id="adaptiveSavingsText">60W → 18W</div>
-                    </div>
-                    <div class="savings-step highlight">
-                        <div class="savings-step-label" style="color: var(--amber); font-weight: 700;">Gesamt-Einsparung</div>
-                        <div class="savings-step-value amber" id="totalSavingsPercent">88%</div>
-                        <div class="savings-step-detail" id="totalSavingsText" style="color: var(--text-primary);">150W → 18W</div>
-                    </div>
-                    <div class="savings-step">
-                        <div class="savings-step-label" style="color: var(--text-secondary);">Lichtleistung</div>
-                        <div class="lumens-box">
-                            <div class="lumens-item amber-bg">
-                                <div class="lumens-item-label">Maximal</div>
-                                <div class="lumens-item-value amber" id="lumensMax">9.000 lm</div>
-                            </div>
-                            <div class="lumens-item green-bg">
-                                <div class="lumens-item-label" style="color: var(--text-primary);">Gedimmt (Ø)</div>
-                                <div class="lumens-item-value green" id="lumensDimmed">2.700 lm</div>
-                            </div>
-                        </div>
+                    <div class="recommendation-stats">
+                        <div><div class="rec-value" id="phoenixMax">60W</div><div class="rec-label">Maximalleistung</div></div>
+                        <div><div class="rec-value" id="phoenixAvg">18W</div><div class="rec-label">Durchschnitt adaptiv</div></div>
+                        <div><div class="rec-value" id="phoenixLumens">7.800</div><div class="rec-label">Lumen bei 100 %</div></div>
                     </div>
                 </div>
 
-                <div class="results-summary">
-                    <div class="result-item">
-                        <div class="result-value" id="yearSavings">€0</div>
-                        <div class="result-label">Ersparnis / Jahr</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value" id="roiMonths">0</div>
-                        <div class="result-label">ROI in Monaten</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value" id="co2Savings">0t</div>
-                        <div class="result-label">CO₂-Einsparung / Jahr</div>
-                    </div>
-                    <div class="result-item">
-                        <div class="result-value" id="fiveyearSavings">€0</div>
-                        <div class="result-label">Ersparnis 5 Jahre</div>
-                    </div>
-                </div>
+                <button class="btn-calculate" onclick="calculateROI()"><i class="fas fa-calculator"></i> Einsparungen berechnen</button>
 
-                <div class="results-note" id="eigenanteilInfo">
-                    <i class="fas fa-info-circle"></i> Mit 40 % NKI-Förderung beträgt Ihr Eigenanteil nur <strong id="eigenanteilText">€0</strong>
+                <div class="results-panel" id="results">
+                    <h3><i class="fas fa-chart-line"></i> Ihre Einsparungen</h3>
+                    <div class="savings-breakdown">
+                        <div class="savings-step"><div class="step-label">Schritt 1: LED-Upgrade</div><div class="step-value" id="ledSavings">60%</div><div class="step-detail" id="ledSavingsText">150W → 60W</div></div>
+                        <div class="savings-step"><div class="step-label">Schritt 2: Adaptive Steuerung</div><div class="step-value" id="adaptiveSavings">70%</div><div class="step-detail" id="adaptiveSavingsText">60W → 18W</div></div>
+                        <div class="savings-step highlight"><div class="step-label">Gesamt-Einsparung</div><div class="step-value" id="totalSavingsPercent">88%</div><div class="step-detail" id="totalSavingsText">150W → 18W</div></div>
+                        <div class="lumens-box"><div class="step-label">Lichtleistung</div><div class="lumens-row"><div class="lumens-item max"><div class="lm-label">Maximal</div><div class="lm-value" id="lumensMax">9.000 lm</div></div><div class="lumens-item dim"><div class="lm-label">Gedimmt (Ø)</div><div class="lm-value" id="lumensDimmed">2.700 lm</div></div></div></div>
+                    </div>
+                    <div class="results-numbers">
+                        <div class="result-box"><div class="r-value" id="yearSavings">€0</div><div class="r-label">Ersparnis pro Jahr</div></div>
+                        <div class="result-box"><div class="r-value"><span id="roiMonths">0</span> Mon.</div><div class="r-label">ROI (mit NKI)</div></div>
+                        <div class="result-box"><div class="r-value" id="co2Savings">0t</div><div class="r-label">CO₂-Einsparung / Jahr</div></div>
+                        <div class="result-box"><div class="r-value" id="fiveyearSavings">€0</div><div class="r-label">Ersparnis 5 Jahre</div></div>
+                    </div>
+                    <div class="results-info" id="resultsInfo"><i class="fas fa-info-circle"></i> Mit 40 % NKI-Förderung beträgt Ihr Eigenanteil nur <strong id="eigenanteilText">€0</strong></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="pricing-section" id="preise">
-        <div class="section-header">
-            <div class="section-label">Preise</div>
-            <h2 class="section-title">Transparente, faire Preise</h2>
-            <p class="section-desc">Flexible Modelle für jede Kommunengröße.</p>
-        </div>
+    <section id="preise">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Fair & Transparent</span>
+                <h2 class="section-heading">Preise</h2>
+                <p class="section-desc">Flexible Modelle für Kommunen jeder Größe.</p>
+            </div>
+            <div class="promo-banner animate-on-scroll"><h3><i class="fas fa-gift"></i> 24 Monate Premium-Dashboard inklusive</h3><p>SaaS-Kosten starten erst nach Hardware-Amortisation. Fair. Transparent. Risikofrei.</p></div>
 
-        <div class="pricing-promo">
-            <h3><i class="fas fa-gift"></i> 24 Monate Premium-Dashboard inklusive</h3>
-            <p>SaaS-Kosten starten erst nach der Hardware-Amortisation. Fair. Transparent. Risikofrei.</p>
-        </div>
-
-        <div class="saas-label">Hardware-Preise nach Leistungsklasse</div>
-        <div class="hw-prices">
-            <div class="hw-card">
-                <div class="hw-card-name">Aurora</div>
-                <div class="hw-card-price">€350</div>
-                <div class="hw-card-use">Wohnstraßen</div>
-            </div>
-            <div class="hw-card">
-                <div class="hw-card-name">Lumen</div>
-                <div class="hw-card-price">€400</div>
-                <div class="hw-card-use">Hauptstraßen</div>
-            </div>
-            <div class="hw-card">
-                <div class="hw-card-name">Nova</div>
-                <div class="hw-card-price">€450</div>
-                <div class="hw-card-use">Bundesstraßen</div>
-            </div>
-            <div class="hw-card">
-                <div class="hw-card-name">Phoenix</div>
-                <div class="hw-card-price">€500</div>
-                <div class="hw-card-use">Autobahnen</div>
-            </div>
-        </div>
-
-        <div class="saas-label">SaaS-Pläne ab Jahr 3</div>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-tier">Basic</div>
-                <div class="pricing-price">€0,29–0,99</div>
-                <div class="pricing-period">pro Lampe / Monat (ab Jahr 3)</div>
-                <ul class="pricing-features">
-                    <li>Live-Monitoring</li>
-                    <li>Basis-Analytics</li>
-                    <li>E-Mail-Support</li>
-                    <li>Energie-Dashboard</li>
-                    <li>Basis-Reporting</li>
-                    <li class="highlight-feature">24 Monate gratis inklusive</li>
-                </ul>
-                <a href="#kontakt" class="btn-primary" style="width: 100%; justify-content: center;">Interesse bekunden</a>
+            <h3 style="text-align:center;color:white;margin-bottom:1.5rem;font-size:1.3rem;">Hardware nach Leistung</h3>
+            <div class="hardware-grid">
+                <div class="hw-card animate-on-scroll"><div class="hw-name">Aurora</div><div class="hw-price">€350</div><div class="hw-use">Wohnstraßen · 40W</div></div>
+                <div class="hw-card animate-on-scroll"><div class="hw-name">Lumen</div><div class="hw-price">€400</div><div class="hw-use">Hauptstraßen · 60W</div></div>
+                <div class="hw-card animate-on-scroll"><div class="hw-name">Nova</div><div class="hw-price">€450</div><div class="hw-use">Bundesstraßen · 80W</div></div>
+                <div class="hw-card animate-on-scroll"><div class="hw-name">Phoenix</div><div class="hw-price">€500</div><div class="hw-use">Autobahnen · 100W</div></div>
             </div>
 
-            <div class="pricing-card featured">
-                <div class="pricing-badge">Beliebt</div>
-                <div class="pricing-tier">Professional</div>
-                <div class="pricing-price">€0,99–2,99</div>
-                <div class="pricing-period">pro Lampe / Monat (ab Jahr 3)</div>
-                <ul class="pricing-features">
-                    <li>Alles aus Basic</li>
-                    <li>Advanced Analytics</li>
-                    <li>Event-Modi</li>
-                    <li>Predictive Maintenance</li>
-                    <li>Telefon-Support</li>
-                    <li>Custom Reports</li>
-                    <li class="highlight-feature">24 Monate gratis inklusive</li>
-                </ul>
-                <a href="#kontakt" class="btn-primary" style="width: 100%; justify-content: center;">Interesse bekunden</a>
+            <h3 class="saas-heading">SaaS-Preise ab Jahr 3</h3>
+            <p class="saas-subheading">Die ersten 24 Monate sind bei jeder Variante inklusive.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card animate-on-scroll"><div class="pricing-tier">Basic</div><div class="pricing-price">€0,29–0,99</div><div class="pricing-period">pro Lampe / Monat</div><ul class="pricing-features"><li>Live-Monitoring</li><li>Basis-Analytics</li><li>Energie-Dashboard</li><li>Basis-Reporting</li><li>E-Mail-Support</li><li class="highlight-feature">24 Monate gratis</li></ul><a href="#kontakt" class="btn-primary"><i class="fas fa-envelope"></i> Interesse bekunden</a></div>
+                <div class="pricing-card featured animate-on-scroll"><span class="popular-tag">Empfohlen</span><div class="pricing-tier">Professional</div><div class="pricing-price">€0,99–2,99</div><div class="pricing-period">pro Lampe / Monat</div><ul class="pricing-features"><li>Alles aus Basic</li><li>Advanced Analytics</li><li>Event-Modi</li><li>Predictive Maintenance</li><li>Custom Reports</li><li>Telefon-Support</li><li class="highlight-feature">24 Monate gratis</li></ul><a href="#kontakt" class="btn-primary"><i class="fas fa-envelope"></i> Interesse bekunden</a></div>
+                <div class="pricing-card animate-on-scroll"><div class="pricing-tier">Enterprise</div><div class="pricing-price">€1,99–4,99</div><div class="pricing-period">pro Lampe / Monat</div><ul class="pricing-features"><li>Alles aus Professional</li><li>API-Zugang</li><li>White-Label Dashboard</li><li>SLA 99,9 %</li><li>Dedicated Support</li><li>On-Premise Option</li><li class="highlight-feature">24 Monate gratis</li></ul><a href="#kontakt" class="btn-primary"><i class="fas fa-envelope"></i> Interesse bekunden</a></div>
             </div>
 
-            <div class="pricing-card">
-                <div class="pricing-tier">Enterprise</div>
-                <div class="pricing-price">€1,99–4,99</div>
-                <div class="pricing-period">pro Lampe / Monat (ab Jahr 3)</div>
-                <ul class="pricing-features">
-                    <li>Alles aus Professional</li>
-                    <li>API-Zugang</li>
-                    <li>White-Label-Dashboard</li>
-                    <li>SLA 99,9 %</li>
-                    <li>Dedicated Support</li>
-                    <li>On-Premise-Option</li>
-                    <li class="highlight-feature">24 Monate gratis inklusive</li>
-                </ul>
-                <a href="#kontakt" class="btn-primary" style="width: 100%; justify-content: center;">Interesse bekunden</a>
-            </div>
-        </div>
+            <div class="nki-box animate-on-scroll"><h3><i class="fas fa-piggy-bank"></i> NKI-Förderung nutzen</h3><p>Hardware-Preis: <strong>€350–500 pro Lampe</strong> (je nach Modell)</p><p>Mit bis zu <strong style="color:var(--accent)">40 % NKI-Förderung</strong> nur <strong>€210–300 Eigenanteil</strong></p><p class="nki-highlight"><i class="fas fa-chart-line"></i> + 24 Monate SaaS gratis = Unschlagbarer ROI</p></div>
 
-        <div class="pricing-info-box">
-            <h3><i class="fas fa-piggy-bank"></i> NKI-Förderung nutzen</h3>
-            <p>Hardware: <strong>€350–500 pro Lampe</strong> je nach Modell</p>
-            <p>Mit bis zu <strong>40 % NKI-Förderung</strong> nur <strong>€210–300</strong> Eigenanteil</p>
-            <p style="margin-top: 0.5rem; font-weight: 600; color: var(--amber);"><i class="fas fa-chart-line"></i> + 24 Monate SaaS gratis = unschlagbarer ROI</p>
-        </div>
-
-        <div class="pricing-info-box" style="background: var(--bg-card);">
-            <h3><i class="fas fa-tags"></i> Mengenrabatte auf SaaS</h3>
+            <h3 style="text-align:center;color:white;margin-bottom:1.5rem;font-size:1.3rem;"><i class="fas fa-tags"></i> Mengenrabatte auf SaaS</h3>
             <div class="discount-grid">
-                <div class="discount-item">
-                    <div class="discount-value">15 %</div>
-                    <div class="discount-label">ab 50 Lampen</div>
-                </div>
-                <div class="discount-item">
-                    <div class="discount-value">25 %</div>
-                    <div class="discount-label">ab 100 Lampen</div>
-                </div>
-                <div class="discount-item">
-                    <div class="discount-value">35 %</div>
-                    <div class="discount-label">ab 200 Lampen</div>
-                </div>
-                <div class="discount-item best">
-                    <div class="discount-value">50 %</div>
-                    <div class="discount-label">ab 500 Lampen</div>
-                </div>
-            </div>
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);"><i class="fas fa-info-circle"></i> Große Projekte profitieren von deutlich reduzierten SaaS-Kosten ab Jahr 3.</p>
-        </div>
-    </section>
-
-    <!-- Case Studies -->
-    <section class="section section-dark" id="projekte">
-        <div class="section-header">
-            <div class="section-label">Projekte</div>
-            <h2 class="section-title">Geplante Referenzprojekte</h2>
-            <p class="section-desc">Diese Pilotprojekte sind in Vorbereitung — die Zahlen basieren auf unseren Simulationsmodellen.</p>
-        </div>
-
-        <div class="cases-grid">
-            <div class="case-card reveal">
-                <div class="case-card-image">
-                    <span class="case-planned-badge">Geplant</span>
-                    <i class="fas fa-city"></i>
-                </div>
-                <div class="case-card-body">
-                    <h3>Stadt Bonn — Altstadt</h3>
-                    <div class="case-meta">
-                        <span><i class="fas fa-lightbulb"></i> 150 Lampen</span>
-                        <span><i class="fas fa-calendar"></i> Q4 2026</span>
-                    </div>
-                    <p>Pilotprojekt im historischen Altstadtkern mit besonderem Fokus auf Wildlife-Schutz und denkmalverträgliche Installation.</p>
-                    <div class="case-results">
-                        <div class="case-result-box">
-                            <div class="case-result-value">68 %</div>
-                            <div class="case-result-label">Energieeinsparung (proj.)</div>
-                        </div>
-                        <div class="case-result-box">
-                            <div class="case-result-value">€22.100</div>
-                            <div class="case-result-label">Ersparnis / Jahr (proj.)</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case-card reveal">
-                <div class="case-card-image">
-                    <span class="case-planned-badge">Geplant</span>
-                    <i class="fas fa-tree"></i>
-                </div>
-                <div class="case-card-body">
-                    <h3>Gemeinde Königswinter</h3>
-                    <div class="case-meta">
-                        <span><i class="fas fa-lightbulb"></i> 85 Lampen</span>
-                        <span><i class="fas fa-calendar"></i> Q1 2027</span>
-                    </div>
-                    <p>Naturpark-Gemeinde mit strengen Auflagen zum Schutz nachtaktiver Tiere. Ziel: Dark-Sky-Friendly-Zertifizierung.</p>
-                    <div class="case-results">
-                        <div class="case-result-box">
-                            <div class="case-result-value">72 %</div>
-                            <div class="case-result-label">Energieeinsparung (proj.)</div>
-                        </div>
-                        <div class="case-result-box">
-                            <div class="case-result-value">85 %</div>
-                            <div class="case-result-label">Weniger Lichtverschmutzung</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case-card reveal">
-                <div class="case-card-image">
-                    <span class="case-planned-badge">Geplant</span>
-                    <i class="fas fa-industry"></i>
-                </div>
-                <div class="case-card-body">
-                    <h3>Gewerbepark Rheinbach</h3>
-                    <div class="case-meta">
-                        <span><i class="fas fa-lightbulb"></i> 200 Lampen</span>
-                        <span><i class="fas fa-calendar"></i> Q2 2027</span>
-                    </div>
-                    <p>Großflächige Installation mit Fokus auf Sicherheit und Integration in bestehendes Gebäudemanagementsystem.</p>
-                    <div class="case-results">
-                        <div class="case-result-box">
-                            <div class="case-result-value">€29.500</div>
-                            <div class="case-result-label">Ersparnis / Jahr (proj.)</div>
-                        </div>
-                        <div class="case-result-box">
-                            <div class="case-result-value">2,5 J.</div>
-                            <div class="case-result-label">ROI (proj.)</div>
-                        </div>
-                    </div>
-                </div>
+                <div class="discount-item animate-on-scroll"><div class="discount-value">15%</div><div class="discount-label">ab 50 Lampen</div></div>
+                <div class="discount-item animate-on-scroll"><div class="discount-value">25%</div><div class="discount-label">ab 100 Lampen</div></div>
+                <div class="discount-item animate-on-scroll"><div class="discount-value">35%</div><div class="discount-label">ab 200 Lampen</div></div>
+                <div class="discount-item top animate-on-scroll"><div class="discount-value">50%</div><div class="discount-label">ab 500 Lampen</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Impact -->
-    <section class="section" id="impact">
-        <div class="section-header">
-            <div class="section-label">Impact</div>
-            <h2 class="section-title">Messbarer Beitrag</h2>
-            <p class="section-desc">Gemeinsam für eine nachhaltigere Zukunft.</p>
-        </div>
-
-        <div class="impact-grid">
-            <div class="impact-card reveal">
-                <div class="impact-icon"><i class="fas fa-seedling"></i></div>
-                <div class="impact-value">50.000 t</div>
-                <div class="impact-label">CO₂-Reduktion bei 100.000 Lampen / Jahr</div>
+    <section class="projects-section" id="projekte">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Pilotprojekte</span>
+                <h2 class="section-heading">Geplante Referenzprojekte</h2>
+                <p class="section-desc">Erste Piloten in der Region Bonn – im Aufbau.</p>
             </div>
-            <div class="impact-card reveal">
-                <div class="impact-icon"><i class="fas fa-tree"></i></div>
-                <div class="impact-value">3</div>
-                <div class="impact-label">Mangroven pro verkaufter Leuchte</div>
-            </div>
-            <div class="impact-card reveal">
-                <div class="impact-icon"><i class="fas fa-bolt"></i></div>
-                <div class="impact-value">736 kWh</div>
-                <div class="impact-label">Einsparung pro Lampe / Jahr</div>
-            </div>
-            <div class="impact-card reveal">
-                <div class="impact-icon"><i class="fas fa-moon"></i></div>
-                <div class="impact-value">85 %</div>
-                <div class="impact-label">Weniger Lichtverschmutzung</div>
+            <div class="projects-notice"><i class="fas fa-info-circle"></i><p>KlugLux befindet sich in Gründung. Die folgenden Projekte zeigen geplante Pilotinstallationen mit prognostizierten Ergebnissen auf Basis unserer Simulationen.</p></div>
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll"><div class="project-image"><i class="fas fa-city"></i></div><div class="project-body"><h3>Stadt Bonn – Altstadt</h3><div class="project-meta"><span><i class="fas fa-lightbulb"></i> 150 Lampen</span><span><i class="fas fa-calendar"></i> Geplant: Q4 2026</span></div><p>Pilotprojekt im historischen Altstadtkern mit besonderem Fokus auf Wildlife-Schutz und Denkmalverträglichkeit.</p><div class="project-results"><div class="project-result"><div class="pr-value">~68%</div><div class="pr-label">Progn. Einsparung</div></div><div class="project-result"><div class="pr-value">~€38.700</div><div class="pr-label">Progn. Ersparnis/Jahr</div></div></div></div></div>
+                <div class="project-card animate-on-scroll"><div class="project-image"><i class="fas fa-tree"></i></div><div class="project-body"><h3>Gemeinde Königswinter</h3><div class="project-meta"><span><i class="fas fa-lightbulb"></i> 85 Lampen</span><span><i class="fas fa-calendar"></i> Geplant: Q1 2027</span></div><p>Naturpark-Gemeinde mit strengen Auflagen zum Schutz nachtaktiver Tiere – Ziel: Dark-Sky-Friendly-Zertifizierung.</p><div class="project-results"><div class="project-result"><div class="pr-value">~72%</div><div class="pr-label">Progn. Einsparung</div></div><div class="project-result"><div class="pr-value">~85%</div><div class="pr-label">Weniger Lichtverschm.</div></div></div></div></div>
+                <div class="project-card animate-on-scroll"><div class="project-image"><i class="fas fa-industry"></i></div><div class="project-body"><h3>Gewerbepark Rheinbach</h3><div class="project-meta"><span><i class="fas fa-lightbulb"></i> 200 Lampen</span><span><i class="fas fa-calendar"></i> Geplant: Q2 2027</span></div><p>Großflächige Installation mit Fokus auf Sicherheit, Energieeffizienz und BMS-Integration.</p><div class="project-results"><div class="project-result"><div class="pr-value">~€51.600</div><div class="pr-label">Progn. Ersparnis/Jahr</div></div><div class="project-result"><div class="pr-value">~1,4 J.</div><div class="pr-label">Progn. ROI</div></div></div></div></div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <section id="impact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nachhaltigkeit</span>
+                <h2 class="section-heading">Messbarer Impact</h2>
+                <p class="section-desc">Gemeinsam für eine nachhaltigere Zukunft – jede Lampe zählt.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card animate-on-scroll"><i class="fas fa-seedling"></i><div class="impact-value">50.000t</div><div class="impact-label">CO₂-Reduktion bei 100.000 Lampen/Jahr</div></div>
+                <div class="impact-card animate-on-scroll"><i class="fas fa-tree"></i><div class="impact-value">3</div><div class="impact-label">Mangroven pro verkaufter Lampe</div></div>
+                <div class="impact-card animate-on-scroll"><i class="fas fa-bolt"></i><div class="impact-value">736 kWh</div><div class="impact-label">Einsparung pro Lampe/Jahr</div></div>
+                <div class="impact-card animate-on-scroll"><i class="fas fa-moon"></i><div class="impact-value">85%</div><div class="impact-label">Weniger Lichtverschmutzung</div></div>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-section" id="kontakt">
-        <div class="cta-box">
-            <div class="cta-inner">
+        <div class="container">
+            <div class="cta-card">
                 <h2>Bereit für die Zukunft?</h2>
-                <p>Starten Sie jetzt Ihr Pilotprojekt und profitieren Sie von 24 Monaten kostenlosem SaaS-Dashboard. Wir unterstützen Sie bei der NKI-Antragstellung.</p>
+                <p>Starten Sie jetzt Ihr Pilotprojekt und profitieren Sie von 24 Monaten kostenlosem SaaS-Dashboard. Wir unterstützen bei der NKI-Antragstellung.</p>
                 <div class="cta-buttons">
-                    <a href="/cdn-cgi/l/email-protection#f990979f96b992958c9e958c81d79d9c" class="btn-primary"><i class="fas fa-envelope"></i> Pilotprojekt anfragen</a>
-                    <a href="#rechner" class="btn-outline"><i class="fas fa-calculator"></i> ROI berechnen</a>
+                    <a href="mailto:info@kluglux.de" class="btn-primary"><i class="fas fa-envelope"></i> Pilotprojekt anfragen</a>
+                    <a href="#rechner" class="btn-secondary"><i class="fas fa-calculator"></i> ROI berechnen</a>
                 </div>
-                <div class="cta-contact">
-                    <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection#4f262129200f24233a28233a37612b2a"><span class="__cf_email__" data-cfemail="9cf5f2faf3dcf7f0e9fbf0e9e4b2f8f9">[email&#160;protected]</span></a> · <i class="fas fa-map-marker-alt"></i> Bonn, Deutschland · <i class="fas fa-globe"></i> <a href="https://www.kluglux.de">www.kluglux.de</a></p>
-                </div>
+                <div class="cta-contact"><p><a href="mailto:info@kluglux.de">info@kluglux.de</a> &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i> Bonn, Deutschland &nbsp;·&nbsp; <a href="https://www.kluglux.de" target="_blank">www.kluglux.de</a></p></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-section">
-                <h4>KlugLux</h4>
-                <p>Intelligente Straßenbeleuchtung für Smart Cities. Energieeffizient, DSGVO-konform und nachhaltig.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4 style="color:white;font-size:1.2rem;margin-bottom:1rem;">KlugLux</h4>
+                    <p>Intelligente Straßenbeleuchtung für Smart Cities. Energieeffizient, DSGVO-konform und nachhaltig.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
+                <div class="footer-col"><h4>Produkt</h4><a href="#features">Features</a><a href="#technologie">Technologie</a><a href="#rechner">ROI-Rechner</a><a href="#preise">Preise</a><a href="#projekte">Referenzen</a></div>
+                <div class="footer-col"><h4>Unternehmen</h4><a href="#">Über uns</a><a href="#">Team</a><a href="#">Karriere</a><a href="#">Presse</a></div>
+                <div class="footer-col"><h4>Ressourcen</h4><a href="#">Dokumentation</a><a href="#">NKI-Förderung</a><a href="#">Blog</a><a href="#">Support</a></div>
             </div>
-            <div class="footer-section">
-                <h4>Produkt</h4>
-                <a href="#features">Features</a>
-                <a href="#technologie">Technologie</a>
-                <a href="#rechner">ROI-Rechner</a>
-                <a href="#preise">Preise</a>
-                <a href="#projekte">Referenzen</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KlugLux UG (haftungsbeschränkt). Alle Rechte vorbehalten.</p>
+                <div class="footer-legal"><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a><a href="agb.html">AGB</a></div>
             </div>
-            <div class="footer-section">
-                <h4>Unternehmen</h4>
-                <a href="#">Über uns</a>
-                <a href="#">Team</a>
-                <a href="#">Karriere</a>
-                <a href="#">Presse</a>
-                <a href="#">Partner</a>
-            </div>
-            <div class="footer-section">
-                <h4>Ressourcen</h4>
-                <a href="#">Dokumentation</a>
-                <a href="#">NKI-Förderung</a>
-                <a href="#">Case Studies</a>
-                <a href="#">Blog</a>
-                <a href="#">Support</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 KlugLux UG (haftungsbeschränkt). Alle Rechte vorbehalten.</p>
-            <p style="margin-top: 0.4rem;">
-                <a href="datenschutz.html">Datenschutz</a> |
-                <a href="impressum.html">Impressum</a> |
-                <a href="agb.html">AGB</a>
-            </p>
         </div>
     </footer>
 
-    <!-- Scroll to Top -->
-    <button class="scroll-top" id="scrollTop" aria-label="Nach oben scrollen">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <button class="scroll-top" id="scrollTop" aria-label="Nach oben scrollen"><i class="fas fa-arrow-up"></i></button>
 
+    <script>
+        // Mobile menu
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // ─── Mobile Navigation ───
-        const hamburger = document.getElementById('hamburger');
-        const mobileNav = document.getElementById('mobileNav');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileNav.classList.toggle('open');
-            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        navToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            navToggle.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-        mobileNav.querySelectorAll('a').forEach(link => {
+        document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileNav.classList.remove('open');
+                mobileMenu.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             });
         });
 
-        // ─── Smooth Scroll ───
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80;
-                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // ─── Navbar Scroll ───
+        // Nav scroll
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 40);
-        }, { passive: true });
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
 
-        // ─── Scroll to Top ───
+        // Scroll to top
         const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
-            scrollTopBtn.classList.toggle('show', window.scrollY > 500);
-        }, { passive: true });
+        window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('show', window.scrollY > 500); }, { passive: true });
+        scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ─── Scroll Reveal ───
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // ─── Touch support for Info Points (tablet) ───
-        document.querySelectorAll('.info-point').forEach(point => {
-            point.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const wasActive = this.classList.contains('active');
-                document.querySelectorAll('.info-point').forEach(p => p.classList.remove('active'));
-                if (!wasActive) this.classList.add('active');
-            });
-        });
-
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.info-point').forEach(p => p.classList.remove('active'));
-        });
-
-        // ─── Wave Animation ───
+        // Wave animation
         function activateWave() {
-            const lamps = document.querySelectorAll('.single-lamp');
-            const fadeIn = 2000, hold = 2000, delay = 2000;
-
-            lamps.forEach((lamp, i) => {
-                const start = i * delay;
+            const lamps = document.querySelectorAll('.lamp');
+            lamps.forEach((lamp, index) => {
+                const startDelay = index * 2000;
                 setTimeout(() => { lamp.classList.remove('wave-active'); lamp.classList.add('dimmed'); }, 0);
-                setTimeout(() => { lamp.classList.remove('dimmed'); lamp.classList.add('wave-active'); }, start);
-                setTimeout(() => { lamp.classList.remove('wave-active'); lamp.classList.add('dimmed'); }, start + fadeIn + hold);
+                setTimeout(() => { lamp.classList.remove('dimmed'); lamp.classList.add('wave-active'); }, startDelay);
+                setTimeout(() => { lamp.classList.remove('wave-active'); lamp.classList.add('dimmed'); }, startDelay + 4000);
             });
         }
-
         activateWave();
         setInterval(activateWave, 12000);
 
-        // ─── ROI Calculator ───
+        // ROI Calculator
+        const streetTypeSelect = document.getElementById('streetType');
+        streetTypeSelect.addEventListener('change', updatePhoenixRecommendation);
+
         function updatePhoenixRecommendation() {
-            const streetType = document.getElementById('streetType').value;
-            let phoenixMax, phoenixAvg, lumens, recommendText, hardwarePrice, modelName;
-
-            switch (streetType) {
-                case 'residential':
-                    phoenixMax = 40; phoenixAvg = Math.round(40 * 0.30); lumens = 40 * 130;
-                    recommendText = 'Für Wohnstraßen optimal'; hardwarePrice = 350; modelName = 'Aurora';
-                    break;
-                case 'main':
-                    phoenixMax = 60; phoenixAvg = Math.round(60 * 0.30); lumens = 60 * 130;
-                    recommendText = 'Für Hauptstraßen optimal'; hardwarePrice = 400; modelName = 'Lumen';
-                    break;
-                case 'highway':
-                    phoenixMax = 80; phoenixAvg = Math.round(80 * 0.31); lumens = 80 * 130;
-                    recommendText = 'Für Bundesstraßen optimal'; hardwarePrice = 450; modelName = 'Nova';
-                    break;
-                case 'autobahn':
-                    phoenixMax = 100; phoenixAvg = Math.round(100 * 0.30); lumens = 100 * 130;
-                    recommendText = 'Für Autobahnen optimal'; hardwarePrice = 500; modelName = 'Phoenix';
-                    break;
-            }
-
-            document.getElementById('recommendationTitle').textContent = 'Empfohlene Variante: ' + modelName;
-            document.getElementById('phoenixMax').textContent = phoenixMax + 'W';
-            document.getElementById('phoenixAvg').textContent = phoenixAvg + 'W';
-            document.getElementById('phoenixLumens').textContent = lumens.toLocaleString('de-DE');
-            document.getElementById('recommendationText').textContent = recommendText + ' | Hardware: \u20AC' + hardwarePrice;
-
-            return { phoenixMax, phoenixAvg, hardwarePrice, modelName };
+            const configs = {
+                residential: { max: 40, ratio: 0.30, price: 350, name: 'Aurora', label: 'Für Wohnstraßen optimal' },
+                main:        { max: 60, ratio: 0.30, price: 400, name: 'Lumen', label: 'Für Hauptstraßen optimal' },
+                highway:     { max: 80, ratio: 0.31, price: 450, name: 'Nova', label: 'Für Bundesstraßen optimal' },
+                autobahn:    { max: 100, ratio: 0.30, price: 500, name: 'Phoenix', label: 'Für Autobahnen optimal' }
+            };
+            const c = configs[streetTypeSelect.value];
+            const avg = Math.round(c.max * c.ratio);
+            document.getElementById('recommendationTitle').textContent = 'Empfohlene Variante: ' + c.name;
+            document.getElementById('phoenixMax').textContent = c.max + 'W';
+            document.getElementById('phoenixAvg').textContent = avg + 'W';
+            document.getElementById('phoenixLumens').textContent = (c.max * 130).toLocaleString('de-DE');
+            document.getElementById('recommendationText').textContent = c.label + ' · Hardware: €' + c.price;
+            return { phoenixMax: c.max, phoenixAvg: avg, hardwarePrice: c.price };
         }
 
         function calculateROI() {
             const rec = updatePhoenixRecommendation();
-            const lampCount = parseInt(document.getElementById('lampCount').value);
-            const currentPower = parseInt(document.getElementById('currentPower').value);
-            const energyCost = parseFloat(document.getElementById('energyCost').value);
+            const lampCount = parseInt(document.getElementById('lampCount').value) || 100;
+            const currentPower = parseInt(document.getElementById('currentPower').value) || 150;
+            const energyCost = parseFloat(document.getElementById('energyCost').value) || 0.35;
             const saasplan = parseFloat(document.getElementById('saasplan').value);
+            const { phoenixMax, phoenixAvg, hardwarePrice } = rec;
 
-            const phoenixMax = rec.phoenixMax;
-            const phoenixAvg = rec.phoenixAvg;
-            const hardwarePrice = rec.hardwarePrice;
+            const saasTable = { 40: { b: 0.29, p: 0.99, e: 1.99 }, 60: { b: 0.49, p: 1.49, e: 2.49 }, 80: { b: 0.69, p: 1.99, e: 3.49 }, 100: { b: 0.99, p: 2.99, e: 4.99 } };
+            const sp = saasTable[phoenixMax];
+            let effectiveSaasBase = saasplan <= 0.99 ? sp.b : saasplan <= 2.99 ? sp.p : sp.e;
 
-            let saasBasic, saasPro, saasEnterprise;
-            switch (phoenixMax) {
-                case 40: saasBasic = 0.29; saasPro = 0.99; saasEnterprise = 1.99; break;
-                case 60: saasBasic = 0.49; saasPro = 1.49; saasEnterprise = 2.49; break;
-                case 80: saasBasic = 0.69; saasPro = 1.99; saasEnterprise = 3.49; break;
-                case 100: saasBasic = 0.99; saasPro = 2.99; saasEnterprise = 4.99; break;
-            }
+            const ledP = Math.round(((currentPower - phoenixMax) / currentPower) * 100);
+            const adaptP = Math.round(((phoenixMax - phoenixAvg) / phoenixMax) * 100);
+            const totalP = Math.round(((currentPower - phoenixAvg) / currentPower) * 100);
 
-            let effectiveSaasBase;
-            if (saasplan <= 0.99) effectiveSaasBase = saasBasic;
-            else if (saasplan <= 2.99) effectiveSaasBase = saasPro;
-            else effectiveSaasBase = saasEnterprise;
+            document.getElementById('ledSavings').textContent = ledP + '%';
+            document.getElementById('ledSavingsText').textContent = currentPower + 'W → ' + phoenixMax + 'W';
+            document.getElementById('adaptiveSavings').textContent = adaptP + '%';
+            document.getElementById('adaptiveSavingsText').textContent = phoenixMax + 'W → ' + phoenixAvg + 'W';
+            document.getElementById('totalSavingsPercent').textContent = totalP + '%';
+            document.getElementById('totalSavingsText').textContent = currentPower + 'W → ' + phoenixAvg + 'W';
 
-            const ledSavingWatt = currentPower - phoenixMax;
-            const ledSavingPercent = Math.round((ledSavingWatt / currentPower) * 100);
-            const adaptiveSavingWatt = phoenixMax - phoenixAvg;
-            const adaptiveSavingPercent = Math.round((adaptiveSavingWatt / phoenixMax) * 100);
-            const totalSavingWatt = currentPower - phoenixAvg;
-            const totalSavingPercent = Math.round((totalSavingWatt / currentPower) * 100);
+            document.getElementById('lumensMax').textContent = (phoenixMax * 150).toLocaleString('de-DE') + ' lm';
+            document.getElementById('lumensDimmed').textContent = (phoenixAvg * 150).toLocaleString('de-DE') + ' lm';
 
-            const phoenixMaxLumens = phoenixMax * 150;
-            const phoenixAvgLumens = phoenixAvg * 150;
+            const savedKWh = ((currentPower - phoenixAvg) * 4000 / 1000) * lampCount;
+            const yearSave = savedKWh * energyCost;
 
-            document.getElementById('ledSavings').textContent = ledSavingPercent + '%';
-            document.getElementById('ledSavingsText').textContent = currentPower + 'W \u2192 ' + phoenixMax + 'W';
-            document.getElementById('adaptiveSavings').textContent = adaptiveSavingPercent + '%';
-            document.getElementById('adaptiveSavingsText').textContent = phoenixMax + 'W \u2192 ' + phoenixAvg + 'W';
-            document.getElementById('totalSavingsPercent').textContent = totalSavingPercent + '%';
-            document.getElementById('totalSavingsText').textContent = currentPower + 'W \u2192 ' + phoenixAvg + 'W';
-            document.getElementById('lumensMax').textContent = phoenixMaxLumens.toLocaleString('de-DE') + ' lm';
-            document.getElementById('lumensDimmed').textContent = phoenixAvgLumens.toLocaleString('de-DE') + ' lm';
+            let disc = 0;
+            if (lampCount >= 500) disc = 50; else if (lampCount >= 200) disc = 35; else if (lampCount >= 100) disc = 25; else if (lampCount >= 50) disc = 15;
+            const effSaas = effectiveSaasBase * (1 - disc / 100);
+            const hwCost = lampCount * hardwarePrice;
+            const saasYear = lampCount * effSaas * 12;
+            const fiveYear = (yearSave * 2) + ((yearSave - saasYear) * 3) - (hwCost * 0.6);
+            const eigen = hwCost * 0.6;
+            const roiM = Math.ceil(eigen / (yearSave / 12));
+            const co2 = (savedKWh * 0.485 / 1000).toFixed(1);
 
-            const hoursPerYear = 4000;
-            const savedKWh = (totalSavingWatt * hoursPerYear / 1000) * lampCount;
-            const energySavingsPerYear = savedKWh * energyCost;
+            document.getElementById('yearSavings').textContent = '€' + Math.round(yearSave).toLocaleString('de-DE');
+            document.getElementById('roiMonths').textContent = roiM;
+            document.getElementById('co2Savings').textContent = co2 + 't';
+            document.getElementById('fiveyearSavings').textContent = '€' + Math.round(fiveYear).toLocaleString('de-DE');
 
-            let discountPercent = 0;
-            if (lampCount >= 500) discountPercent = 50;
-            else if (lampCount >= 200) discountPercent = 35;
-            else if (lampCount >= 100) discountPercent = 25;
-            else if (lampCount >= 50) discountPercent = 15;
+            let info = '<i class="fas fa-info-circle"></i> Mit 40 % NKI-Förderung: Eigenanteil nur <strong>€' + eigen.toLocaleString('de-DE') + '</strong>';
+            info += '<br><i class="fas fa-gift" style="margin-top:0.8rem;display:inline-block"></i> <strong>24 Monate SaaS inklusive!</strong> Danach €' + effSaas.toFixed(2) + '/Lampe/Monat';
+            if (disc > 0) info += ' <span style="color:var(--success)">(' + disc + '% Mengenrabatt)</span>';
+            document.getElementById('resultsInfo').innerHTML = info;
+            document.getElementById('results').classList.add('show');
+        }
 
-            const effectiveSaasPrice = effectiveSaasBase * (1 - discountPercent / 100);
-            const hardwareCost = lampCount * hardwarePrice;
-            const saasCostYear = lampCount * effectiveSaasPrice * 12;
-            const year1to2Savings = energySavingsPerYear * 2;
-            const year3plusSavings = energySavingsPerYear - saasCostYear;
-            const fiveYearSavings = year1to2Savings + (year3plusSavings * 3) - (hardwareCost * 0.6);
-            const eigenanteil = hardwareCost * 0.6;
-            const roiMonths = Math.ceil(eigenanteil / (energySavingsPerYear / 12));
-            const co2Savings = (savedKWh * 0.485 / 1000).toFixed(1);
-
-            document.getElementById('yearSavings').textContent = '\u20AC' + Math.round(energySavingsPerYear).toLocaleString('de-DE');
-            document.getElementById('roiMonths').textContent = roiMonths;
-            document.getElementById('co2Savings').textContent = co2Savings + 't';
-            document.getElementById('fiveyearSavings').textContent = '\u20AC' + Math.round(fiveYearSavings).toLocaleString('de-DE');
-            document.getElementById('eigenanteilText').textContent = '\u20AC' + eigenanteil.toLocaleString('de-DE');
-
-            var infoEl = document.getElementById('eigenanteilInfo');
-            var infoStr = '<i class="fas fa-info-circle"></i> Mit 40 % NKI-F\u00F6rderung betr\u00E4gt Ihr Eigenanteil nur <strong>\u20AC' + eigenanteil.toLocaleString('de-DE') + '</strong>';
-            infoStr += '<br><i class="fas fa-gift" style="margin-top:0.5rem;display:inline-block"></i> <strong>24 Monate SaaS inklusive!</strong> Danach \u20AC' + effectiveSaasPrice.toFixed(2) + '/Lampe/Monat';
-            if (discountPercent > 0) {
-                infoStr += ' <span style="c
+        updatePhoenixRecommendation();
+    </script>
+</body>
+</html>
