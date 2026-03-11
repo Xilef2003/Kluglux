@@ -3,114 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum - KlugLux</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Impressum – KlugLux</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/jpeg" href="./KlugLux.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #1e3a5f;
-            --secondary: #ff9500;
-            --dark: #0d1117;
-            --dark-light: #161b22;
-            --text: #c9d1d9;
-            --text-dim: #8b949e;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --surface: #0c1220;
+            --surface-raised: #111a2e;
+            --text-primary: #e8ecf1;
+            --text-secondary: #8899ae;
+            --text-muted: #5a6b80;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(245, 158, 11, 0.25);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+            --font-mono: 'Space Mono', monospace;
         }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark);
-            color: var(--text);
+            font-family: var(--font-display);
+            background: var(--surface);
+            color: var(--text-primary);
             line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
-        nav {
-            position: fixed;
+
+        /* NAV */
+        .nav {
+            position: sticky;
             top: 0;
             width: 100%;
-            background: rgba(13, 17, 23, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(12, 18, 32, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border);
         }
-        .nav-container {
-            max-width: 1400px;
+        .nav-inner {
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 72px;
         }
-        .logo img { height: 60px; }
-        .back-btn {
-            background: linear-gradient(135deg, var(--secondary), #ffb347);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
+        .nav-logo img { height: 48px; width: auto; display: block; }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: #1a1a1a;
+            padding: 0.6rem 1.3rem;
+            border-radius: var(--radius-sm);
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 0.88rem;
+            transition: all 0.2s;
         }
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.5);
+        .btn-back:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
         }
+
+        /* CONTENT */
         .content {
-            max-width: 900px;
-            margin: 120px auto 60px;
-            padding: 0 2rem;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
         }
-        h1 {
-            font-size: 3rem;
+        .page-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, white, var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
         }
         h2 {
-            font-size: 1.8rem;
-            color: var(--secondary);
+            font-size: 1.4rem;
+            color: var(--accent);
             margin-top: 3rem;
             margin-bottom: 1rem;
+            font-weight: 700;
         }
+        h3 {
+            font-size: 1.15rem;
+            color: white;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+        strong { color: var(--text-primary); }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-light); }
+        ul { margin: 1rem 0 1rem 1.5rem; color: var(--text-secondary); }
+        li { margin: 0.4rem 0; }
+
         .info-box {
-            background: var(--dark-light);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--secondary);
-            margin: 2rem 0;
+            background: var(--surface-raised);
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent);
+            margin: 1.5rem 0;
         }
-        .info-box p { margin: 0.5rem 0; }
-        strong { color: white; }
-        a { color: var(--secondary); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        .info-box p { margin: 0.4rem 0; }
+
+        .notice-box {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .notice-box .notice-title {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .notice-box p { font-size: 0.92rem; margin: 0; }
+
+        .divider {
+            margin: 3rem 0;
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .back-bottom {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 2rem 1.2rem 3rem; }
+            .page-title { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo"><img src="KlugLux.jpg" alt="KlugLux"></div>
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Zurück</a>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="KlugLux Startseite">
+                <img src="KlugLux.jpg" alt="KlugLux Logo">
+            </a>
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Zurück zur Startseite</a>
         </div>
     </nav>
 
     <div class="content">
-        <h1>Impressum</h1>
+        <h1 class="page-title">Impressum</h1>
 
-        <div class="info-box" style="background: rgba(255, 149, 0, 0.1); border-left: 4px solid var(--secondary);">
-            <p style="color: var(--secondary); font-weight: 700; margin-bottom: 1rem;">
-                <i class="fas fa-exclamation-triangle"></i> Hinweis: Unternehmen in Gründung
-            </p>
-            <p style="color: var(--text); font-size: 0.95rem;">
-                Die KlugLux UG (haftungsbeschränkt) befindet sich aktuell in Gründung. 
-                Diese Website dient als Vorschau. Verbindliche Angebote und Vertragsabschlüsse 
-                sind erst nach erfolgter Handelsregistereintragung möglich.
-            </p>
+        <div class="notice-box">
+            <div class="notice-title"><i class="fas fa-exclamation-triangle"></i> Unternehmen in Gründung</div>
+            <p>Die KlugLux UG (haftungsbeschränkt) befindet sich aktuell in Gründung. Diese Website dient als Vorschau. Verbindliche Angebote und Vertragsabschlüsse sind erst nach erfolgter Handelsregistereintragung möglich.</p>
         </div>
 
         <h2>Angaben gemäß § 5 TMG</h2>
         <div class="info-box">
             <p><strong>KlugLux UG (haftungsbeschränkt)</strong></p>
-            <p style="color: var(--secondary); font-weight: 600;">In Gründung</p>
-            <p style="margin-top: 1rem;">Vertreten durch: Felix Klug, B.Sc. Wirtschaftsinformatik</p>
+            <p style="color: var(--accent); font-weight: 600;">In Gründung</p>
+            <p style="margin-top: 0.8rem;">Vertreten durch: Felix Klug</p>
         </div>
 
         <h2>Kontakt</h2>
@@ -119,38 +185,34 @@
             <p>Lindenstr. 39</p>
             <p>53227 Bonn</p>
             <p>Deutschland</p>
-            <p style="margin-top: 1.5rem;"><strong>E-Mail:</strong> <a href="/cdn-cgi/l/email-protection#a3c5c6cfcadb8dc8cfd6c49390e3c4cec2cacf8dc0ccce"><span class="__cf_email__" data-cfemail="f096959c9988de9b9c8597c0c3b0979d91999cde939f9d">[email&#160;protected]</span></a></p>
-            <p><strong>Website:</strong> www.kluglux.de</p>
-            <p style="margin-top: 1rem; color: var(--text-dim); font-size: 0.9rem;">
-                <i class="fas fa-info-circle"></i> Nach Gründung wird eine geschäftliche E-Mail-Adresse (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="127b7c747d52797e67757e676a3c7677">[email&#160;protected]</a>) eingerichtet
-            </p>
+            <p style="margin-top: 1rem;"><strong>E-Mail:</strong> <a href="mailto:info@kluglux.de">info@kluglux.de</a></p>
+            <p><strong>Website:</strong> <a href="https://www.kluglux.de">www.kluglux.de</a></p>
         </div>
 
         <h2>Registereintrag</h2>
         <div class="info-box">
             <p><strong>Status:</strong> In Gründung</p>
             <p><strong>Geplante Eintragung:</strong> Amtsgericht Bonn</p>
-            <p style="margin-top: 1rem; color: var(--text-dim); font-size: 0.9rem;">
-                Handelsregisternummer und Umsatzsteuer-ID werden nach Gründung ergänzt.
-            </p>
+            <p style="margin-top: 0.8rem; color: var(--text-muted); font-size: 0.88rem;">Handelsregisternummer und Umsatzsteuer-ID werden nach Gründung ergänzt.</p>
         </div>
 
         <h2>Haftungsausschluss</h2>
-        
+
         <h3>Haftung für Inhalte</h3>
-        <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+        <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
 
         <h3>Haftung für Links</h3>
-        <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+        <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
 
         <h3>Urheberrecht</h3>
-        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
 
         <h3>EU-Streitschlichtung</h3>
-        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" style="color: var(--secondary);">https://ec.europa.eu/consumers/odr/</a>. Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a></p>
+        <p>Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
-        <div style="margin-top: 3rem; text-align: center;">
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Zurück</a>
+        <div class="back-bottom">
+            <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Zurück zur Startseite</a>
         </div>
     </div>
 </body>
